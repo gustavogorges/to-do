@@ -1,34 +1,29 @@
-<h1>
-  TODO APP
-</h1>
+<h1>TODO APP</h1>
 
-<input *ngIf="mostraInput"
-       placeholder="Nome"
-       [(ngModel)]="tarefa.nomeTarefa"
- >
+<input *ngIf="mostraInput" placeholder="Nome" [(ngModel)]="tarefa.nomeTarefa" />
 
- <select [(ngModel)]="tarefa.classeTarefa">
- <option>to-do</option> 
- <option>doing</option> 
- <option>done</option> 
- </select>
+<select [(ngModel)]="tarefa.classeTarefa">
+  <option>to-do</option>
+  <option>doing</option>
+  <option>done</option>
+</select>
 
- <button (click)="cadastrarTarefa()">Cadastro</button>
+<button (click)="cadastrarTarefa()">Cadastro</button>
 
-<button *ngIf="mostraInput" (click) = "esconderInput()">Esconder input</button>
-<button *ngIf="!mostraInput" (click) = "mostrarInput()">Mostrar input</button>
+<button *ngIf="mostraInput" (click)="esconderInput()">Esconder input</button>
+<button *ngIf="!mostraInput" (click)="mostrarInput()">Mostrar input</button>
 
-<div >
-  <h4 *ngFor="let tarefaList of tarefas;index as indice; first as isFirst">
+<div>
+  <h4 *ngFor="let tarefaList of tarefas; index as indice">
     <!-- Primeiro Cadastro: {{ isFirst }} -->
-    Tarefa: {{ indice + 1 }}
-    {{ tarefaList.nomeTarefa }}
+    Tarefa {{ tarefas[indice].codigoTarefa + 1 }}:
+    {{ tarefas[indice].nomeTarefa }}
     <select>
-      <option>{{tarefaList.classeTarefa}}</option> 
+      <option>{{ tarefas[indice].classeTarefa }}</option>
       <option>to do</option>
-      <option>doing</option> 
-      <option>done</option> 
+      <option>doing</option>
+      <option>done</option>
     </select>
-    <button (click) = "removerTarefa(indice)">Remover</button>
+    <button (click)="removerTarefa(indice)">Remover</button>
   </h4>
 </div>
