@@ -75,5 +75,6 @@ export class AppComponent implements OnInit {
 
   removerTarefa(indice: number): void {
     this.tarefas.splice(indice, 1);
+    localStorage.setItem("Tarefas", JSON.stringify(this.tarefas));
   }
 }
