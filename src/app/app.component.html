@@ -13,17 +13,62 @@
 <button *ngIf="mostraInput" (click)="esconderInput()">Esconder input</button>
 <button *ngIf="!mostraInput" (click)="mostrarInput()">Mostrar input</button>
 
-<div>
-  <h4 *ngFor="let tarefaList of tarefas; index as indice">
-    <!-- Primeiro Cadastro: {{ isFirst }} -->
-    Tarefa {{ tarefas[indice].codigoTarefa + 1 }}:
-    {{ tarefas[indice].nomeTarefa }}
-    <select>
-      <option>{{ tarefas[indice].classeTarefa }}</option>
-      <option>to do</option>
-      <option>doing</option>
-      <option>done</option>
-    </select>
-    <button (click)="removerTarefa(indice)">Remover</button>
+<div class="mainBox">
+<div class="todoBox">
+  <h1>To Do</h1>
+  <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
+    <div *ngIf="tarefa.classeTarefa == 'to-do'">
+      <!-- Primeiro Cadastro: {{ isFirst }} -->
+      Tarefa {{ tarefa.codigoTarefa + 1 }}:
+      {{ tarefa.nomeTarefa }}
+      <select (change) = "mudarCategoria()"
+      [(ngModel)]="tarefa.classeTarefa">
+        <option>{{ tarefa.classeTarefa }}</option>
+        <option>to-do</option>
+        <option>doing</option>
+        <option>done</option>
+      </select>
+      <button (click)="removerTarefa(indice)">Remover</button>
+    </div>
   </h4>
 </div>
+
+<div class="doingBox">
+  <h1>Doing</h1>
+  <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
+    <div *ngIf="tarefa.classeTarefa == 'doing'">
+      <!-- Primeiro Cadastro: {{ isFirst }} -->
+      Tarefa {{ tarefa.codigoTarefa + 1 }}:
+      {{ tarefa.nomeTarefa }}
+      <select (change) = "mudarCategoria()"
+      [(ngModel)]="tarefa.classeTarefa">
+        <option>{{ tarefa.classeTarefa }}</option>
+        <option>to-do</option>
+        <option>doing</option>
+        <option>done</option>
+      </select>
+      <button (click)="removerTarefa(indice)">Remover</button>
+    </div>
+  </h4>
+</div>
+<div class="doneBox">
+  <h1>Done</h1>
+  <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
+    <div *ngIf="tarefa.classeTarefa == 'done'">
+      <!-- Primeiro Cadastro: {{ isFirst }} -->
+      Tarefa {{ tarefa.codigoTarefa + 1 }}:
+      {{ tarefa.nomeTarefa }}
+      <select (change) = "mudarCategoria()"
+      [(ngModel)]="tarefa.classeTarefa">
+        <option>{{ tarefa.classeTarefa }}</option>
+        <option>to-do</option>
+        <option>doing</option>
+        <option>done</option>
+      </select>
+      <button (click)="removerTarefa(indice)">Remover</button>
+    </div>
+  </h4>
+</div>
+</div>
+
+<button (click) = "salvarAlteracoes()">Salvar Alterações</button>
