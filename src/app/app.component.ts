@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { forEach } from "@angular/router/src/utils/collection";
 
 interface Tarefa {
   nomeTarefa: string;
@@ -12,16 +13,15 @@ interface Tarefa {
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  session: any;
-  tarefas: Tarefa[] = [];
+  tarefasGeral: Tarefa[] = [];
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
   displayTarefa: string = "";
 
   ngOnInit() {
-    if (localStorage.getItem("Tarefas") != null) {
-      this.tarefas = JSON.parse(localStorage.getItem("Tarefas"));
+    if (localStorage.getItem("TarefasGeral") != null) {
+      this.tarefasGeral = JSON.parse(localStorage.getItem("TarefasGeral"));
     }
   }
 
@@ -50,31 +50,20 @@ export class AppComponent implements OnInit {
       codigoTarefa: this.tarefa.codigoTarefa++,
     };
 
-    console.log(tarefaList);
+    this.tarefasGeral.push(tarefaList)
 
-    this.tarefas.push(tarefaList);
-
-    localStorage.setItem("Tarefas", JSON.stringify(this.tarefas));
-
-    // let tarefasInit: any = localStorage.getItem("Tarefas");
-    // this.session = JSON.parse(tarefasInit);
-    // console.log(this.session);
-
-    // localStorage.setItem(
-    //   "TarefaClasse",
-    //   JSON.stringify(this.tarefa.classeTarefa)
-    // );
-    // localStorage.setItem(
-    //   "TarefaCodigo",
-    //   JSON.stringify(this.tarefa.codigoTarefa)
-    // );
-    console.log(this.tarefas);
-
+    localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
     this.tarefa.nomeTarefa = "";
   }
 
-  removerTarefa(indice: number): void {
-    this.tarefas.splice(indice, 1);
-    localStorage.setItem("Tarefas", JSON.stringify(this.tarefas));
+  
+  mudarCategoria(indice : number, codigo : number) {
+    localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
+
+  }
+
+  removerTarefa(indice : number) : void {
+    this.tarefasGeral.splice(indice , 1);
+    localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
   }
 }
