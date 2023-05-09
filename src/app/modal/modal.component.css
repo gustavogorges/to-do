@@ -1,0 +1,21 @@
+.modalNovaTarefa {
+    position: absolute;
+    height: 500px;
+    width: 100vh;
+    background-color: rgb(197, 196, 196);
+}
+
+.flexTarefa {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.botaoFecharModal {
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+}

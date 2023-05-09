@@ -37,12 +37,6 @@
     margin: 0 auto;
 }
 
-.flexTarefa {
-    margin-top: 30px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
 
 .flexBotao {
     display: flex;
@@ -51,15 +45,20 @@
     margin-top: 30px;
 }
 
-.modalNovaTarefa {
-    position: absolute;
-    height: 500px;
-    width: 100vh;
-    background-color: rgb(197, 196, 196);
-}
-
 .modalTitle {
+    text-transform: uppercase;
     margin-left: 10px;
     font-size: 27px;
     color: #000;
 }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+  }

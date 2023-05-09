@@ -15,9 +15,10 @@ export class AppComponent implements OnInit {
   tarefasGeral: Tarefa[] = [];
 
   mostraInput: boolean = true;
-  mostraModal: boolean = false;
   mostraTarefa: boolean = true;
   displayTarefa: string = "";
+
+  mostraModal: boolean = false;
 
   ngOnInit() {
     if (localStorage.getItem("TarefasGeral") != null) {
@@ -33,10 +34,12 @@ export class AppComponent implements OnInit {
 
   esconderInput(): void {
     this.mostraInput = false;
+    console.log(this.mostraInput)
   }
 
   mostrarInput(): void {
     this.mostraInput = true;
+    console.log(this.mostraInput)
   }
 
   mostrarTarefa(): void {
@@ -69,5 +72,11 @@ export class AppComponent implements OnInit {
 
   mostrarModal() : void {
     this.mostraModal = true;
+    console.log(this.mostraModal);
+  }
+
+  esconderModal() : void {
+    this.mostraModal = false;
+    console.log(this.mostraModal);
   }
 }

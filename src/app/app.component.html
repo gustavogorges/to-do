@@ -1,6 +1,6 @@
+
 <div class="mainHeader">
   <h1 class="mainTitle">TODO APP</h1>
-  <app-modal></app-modal>
     <div class="mainCadastro">
   <input *ngIf="mostraInput" placeholder="Nome" [(ngModel)]="tarefa.nomeTarefa" />
   
@@ -16,11 +16,7 @@
   <button *ngIf="!mostraInput" (click)="mostrarInput()">Mostrar input</button>
 
   </div>
-  <div *ngIf="!mostrarModal" class="flexTarefa" (click)="modalNovaTarefa()">
-    <div class="modalNovaTarefa">
-      <h1 class="modalTitle">Cadastrar Tarefa</h1>
-    </div>
-</div>
+  <app-modal *ngIf="mostraModal"></app-modal>
 <div class="flexBotao">
   <button (click)="mostrarModal()" class="novoTipoTarefa">Novo Tipo Tarefa</button>
 </div>
