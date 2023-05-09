@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { forEach } from "@angular/router/src/utils/collection";
 
 interface Tarefa {
   nomeTarefa: string;
@@ -65,5 +64,9 @@ export class AppComponent implements OnInit {
   removerTarefa(indice : number) : void {
     this.tarefasGeral.splice(indice , 1);
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
+  }
+
+  modalNovaTarefa() : void {
+    
   }
 }

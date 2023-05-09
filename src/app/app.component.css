@@ -27,3 +27,19 @@
     display: flex;
     justify-content: center;
 }
+
+.novoTipoTarefa {
+    padding: 10px 15px;
+    border: 1px solid black;
+    background-color: #000;
+    color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.flexBotao {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
