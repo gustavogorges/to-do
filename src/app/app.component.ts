@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   tarefasGeral: Tarefa[] = [];
 
   mostraInput: boolean = true;
+  mostraModal: boolean = false;
   mostraTarefa: boolean = true;
   displayTarefa: string = "";
 
@@ -66,7 +67,7 @@ export class AppComponent implements OnInit {
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
   }
 
-  modalNovaTarefa() : void {
-    
+  mostrarModal() : void {
+    this.mostraModal = true;
   }
 }

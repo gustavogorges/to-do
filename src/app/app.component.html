@@ -16,8 +16,13 @@
   <button *ngIf="!mostraInput" (click)="mostrarInput()">Mostrar input</button>
 
   </div>
-  <div class="flexBotao" (click)="modalNovaTarefa()">
-  <button class="novoTipoTarefa">Novo Tipo Tarefa</button>
+  <div *ngIf="!mostrarModal" class="flexTarefa" (click)="modalNovaTarefa()">
+    <div class="modalNovaTarefa">
+      <h1 class="modalTitle">Cadastrar Tarefa</h1>
+    </div>
+</div>
+<div class="flexBotao">
+  <button (click)="mostrarModal()" class="novoTipoTarefa">Novo Tipo Tarefa</button>
 </div>
 </div>
   
