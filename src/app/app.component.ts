@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   displayTarefa: string = "";
 
   mostraModal: boolean = false;
+  static mostraModal: boolean;
 
   ngOnInit() {
     if (localStorage.getItem("TarefasGeral") != null) {
