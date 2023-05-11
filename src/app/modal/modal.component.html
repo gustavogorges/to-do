@@ -1,6 +1,7 @@
 <div class="flexTarefa">
     <div class="modalNovaTarefa">
       <h1 class="modalTitle">Cadastrar Tarefa</h1>
-      <a href="#" class="botaoFecharModal" (click)="AppComponent.esconderModal()">Cadastrar</a>
+      <input class="inputNovaTarefa" [(ngModel)]="tarefaTipo" type="text">
+      <a href="#" class="botaoFecharModal" (click)="esconderModal()" (click)="cadastrarTipo()">Cadastrar</a>
     </div>
 </div>

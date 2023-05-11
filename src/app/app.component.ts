@@ -80,4 +80,8 @@ export class AppComponent implements OnInit {
     this.mostraModal = false;
     console.log(this.mostraModal);
   }
+
+  novoTipoTarefa() : void {
+    console.log("novo tipo cadastrado")
+  }
 }
