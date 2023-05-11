@@ -5,9 +5,7 @@
   <input *ngIf="mostraInput" placeholder="Nome" [(ngModel)]="tarefa.nomeTarefa" />
   
   <select [(ngModel)]="tarefa.classeTarefa">
-    <option>to-do</option>
-    <option>doing</option>
-    <option>done</option>
+    <option *ngFor="let item of categoriasGeral">{{item}}</option>
   </select>
   
   <button (click)="cadastrarTarefa()">Cadastro</button>

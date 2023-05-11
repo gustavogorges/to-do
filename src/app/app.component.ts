@@ -13,6 +13,7 @@ interface Tarefa {
 })
 export class AppComponent implements OnInit {
   tarefasGeral: Tarefa[] = [];
+  categoriasGeral: String[] = [];
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -23,6 +24,13 @@ export class AppComponent implements OnInit {
   static mostraModal: boolean;
 
   ngOnInit() {
+    if(localStorage.getItem("Categorias") == null){
+      this.categoriasGeral.push("to-do")
+      this.categoriasGeral.push("doing")
+      this.categoriasGeral.push("done")
+    } else if(localStorage.getItem("Categorias") != null) {
+      this.categoriasGeral = JSON.parse(localStorage.getItem("Categorias"))
+    }
     if (localStorage.getItem("TarefasGeral") != null) {
       this.tarefasGeral = JSON.parse(localStorage.getItem("TarefasGeral"));
     }
@@ -56,8 +64,10 @@ export class AppComponent implements OnInit {
     };
 
     this.tarefasGeral.push(tarefaList)
+    
 
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
+    localStorage.setItem("Categorias", JSON.stringify(this.categoriasGeral));
     this.tarefa.nomeTarefa = "";
   }
 
@@ -83,6 +93,6 @@ export class AppComponent implements OnInit {
   }
 
   novoTipoTarefa(string: string) : void {
-    this.tipoTarefa = string;
+    this.categoriasGeral.push(string);
   }
 }
