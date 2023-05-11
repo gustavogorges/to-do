@@ -24,11 +24,7 @@ export class AppComponent implements OnInit {
   static mostraModal: boolean;
 
   ngOnInit() {
-    if(localStorage.getItem("Categorias") == null){
-      this.categoriasGeral.push("to-do")
-      this.categoriasGeral.push("doing")
-      this.categoriasGeral.push("done")
-    } else if(localStorage.getItem("Categorias") != null) {
+    if(localStorage.getItem("Categorias") != null) {
       this.categoriasGeral = JSON.parse(localStorage.getItem("Categorias"))
     }
     if (localStorage.getItem("TarefasGeral") != null) {
@@ -64,7 +60,9 @@ export class AppComponent implements OnInit {
     };
 
     this.tarefasGeral.push(tarefaList)
-    
+    console.log(tarefaList.classeTarefa)
+    console.log(this.categoriasGeral)
+    console.log(this.tarefasGeral)
 
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
     localStorage.setItem("Categorias", JSON.stringify(this.categoriasGeral));
@@ -84,12 +82,10 @@ export class AppComponent implements OnInit {
 
   mostrarModal() : void {
     this.mostraModal = true;
-    console.log(this.mostraModal);
   }
 
   esconderModal() : void {
     this.mostraModal = false;
-    console.log(this.mostraModal);
   }
 
   novoTipoTarefa(string: string) : void {

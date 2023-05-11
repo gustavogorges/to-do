@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { TarefaComponent } from './tarefa/tarefa.component';
 import { TipoTarefaComponent } from './tipo-tarefa/tipo-tarefa.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TipoTarefaComponent } from './tipo-tarefa/tipo-tarefa.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
