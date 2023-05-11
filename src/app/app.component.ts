@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
   displayTarefa: string = "";
+  tipoTarefa: string;
 
   mostraModal: boolean = false;
   static mostraModal: boolean;
@@ -81,7 +82,7 @@ export class AppComponent implements OnInit {
     console.log(this.mostraModal);
   }
 
-  novoTipoTarefa() : void {
-    console.log("novo tipo cadastrado")
+  novoTipoTarefa(string: string) : void {
+    this.tipoTarefa = string;
   }
 }

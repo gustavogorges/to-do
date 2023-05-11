@@ -24,6 +24,7 @@ export class ModalComponent implements OnInit {
   }
 
   cadastrarTipo() : void {
+    console.log(this.tarefaTipo)
     this.clicouCadastrarTipo.emit(this.tarefaTipo);
   }
 
