@@ -17,7 +17,9 @@ export class ModalComponent implements OnInit {
   @Output() clicouCadastrarTipo = new EventEmitter();
 
   ngOnInit() {
-    this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"))
+    if(JSON.parse(localStorage.getItem("CategoriasGeral")) != null){
+      this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"))
+    }
   }
 
   esconderModal() : void {
@@ -25,6 +27,7 @@ export class ModalComponent implements OnInit {
   }
 
   cadastrarTipo() : void {
+    console.log(this.categoriasGeral, this.tarefaTipo);
     this.categoriasGeral.push(this.tarefaTipo)
     console.log(this.categoriasGeral)
     localStorage.setItem("CategoriasGeral", JSON.stringify(this.categoriasGeral));
