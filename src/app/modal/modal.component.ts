@@ -7,7 +7,7 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-
+  categoriasGeral: String[] = [];
   tarefaTipo : string ;
 
   constructor() { }
@@ -17,6 +17,7 @@ export class ModalComponent implements OnInit {
   @Output() clicouCadastrarTipo = new EventEmitter();
 
   ngOnInit() {
+    this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"))
   }
 
   esconderModal() : void {
@@ -24,8 +25,9 @@ export class ModalComponent implements OnInit {
   }
 
   cadastrarTipo() : void {
-    console.log(this.tarefaTipo)
-    this.clicouCadastrarTipo.emit(this.tarefaTipo);
+    this.categoriasGeral.push(this.tarefaTipo)
+    console.log(this.categoriasGeral)
+    localStorage.setItem("CategoriasGeral", JSON.stringify(this.categoriasGeral));
   }
 
 }

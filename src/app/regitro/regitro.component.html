@@ -1,0 +1,37 @@
+<div class="mainDiv">
+<div class="mainHeader">
+    <div class="mainCadastro">
+  <input *ngIf="mostraInput" placeholder="Nome" [(ngModel)]="tarefa.nomeTarefa" />
+  
+  <select [(ngModel)]="tarefa.classeTarefa">
+    <option *ngFor="let item of categoriasGeral">{{item}}</option>
+  </select>
+  
+  <button (click)="cadastrarTarefa()">Cadastro</button>
+  
+  <button *ngIf="mostraInput" (click)="esconderInput()">Esconder input</button>
+  <button *ngIf="!mostraInput" (click)="mostrarInput()">Mostrar input</button>
+
+  </div>
+  <app-modal *ngIf="mostraModal" (clicouCadastrarTipo)="novoTipoTarefa($event)" ></app-modal>
+
+</div>
+  
+  <section class="Content">
+  <div class="mainBox">
+  <div class="Box" *ngFor="let div of categoriasGeral">
+    <h1>{{div}}</h1>
+    <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
+      <div *ngIf="div == tarefa.classeTarefa">
+        {{ tarefa.nomeTarefa }}
+        <select 
+        (change) = "mudarCategoria()"
+        [(ngModel)]="tarefa.classeTarefa"
+        >
+          <option *ngFor="let item of categoriasGeral">{{ item }}</option>
+        </select>
+        <button (click)="removerTarefa(indice)">Remover</button>
+      </div>
+    </h4>
+  </div>
+</div>
