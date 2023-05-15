@@ -31,6 +31,7 @@ export class ModalComponent implements OnInit {
     this.categoriasGeral.push(this.tarefaTipo)
     console.log(this.categoriasGeral)
     localStorage.setItem("CategoriasGeral", JSON.stringify(this.categoriasGeral));
+    this.tarefaTipo = "";
   }
 
 }
