@@ -5,6 +5,7 @@ nav {
     background-color: #000;
     align-items: center;
     height: 50px;
+    gap: 20%;
 }
 
 nav a{
