@@ -51,8 +51,14 @@
 }
 
 .btnRemove {
+  float:right;
   text-decoration: none;
   font-weight: bold;
-  color: red;
+  color: #000;
   font-family: sans-serif;
+}
+
+.itemCategoria {
+  padding: 10px;
+  border-radius: 2px;
 }

@@ -28,7 +28,7 @@
 
   <section class="Content">
     <div class="mainBox">
-      <div class="Box" *ngFor="let div of categoriasGeral; index as indice">
+      <div class="Box" *ngFor="let div of categoriasGeral; index as indice" [style.background-color]="coresGeral[indice]">
         <div class="btnsBox">
           <h1>{{ div }}</h1>
           <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>

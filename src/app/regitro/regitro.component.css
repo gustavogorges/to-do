@@ -3,14 +3,15 @@
 }
 
 .mainBox {
+  margin-top: 60px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  column-gap: 50px;
+  row-gap: 50px;
 }
 
 .Box {
-  margin-top: 70px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 30px;
 }
 
 .mainHeader {

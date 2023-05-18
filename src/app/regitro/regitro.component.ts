@@ -76,6 +76,9 @@ export class RegitroComponent implements OnInit {
 
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
     localStorage.setItem("Categorias", JSON.stringify(this.categoriasGeral));
+
+    // if((this.coresGeral[this.tarefa.codigoTarefa] + 0.05) / (0.0 + 0.05) > (1.0 + 0.05) / (L + 0.05)  )
+
     this.tarefa.nomeTarefa = "";
   }
 
@@ -99,5 +102,9 @@ export class RegitroComponent implements OnInit {
   novoTipoTarefa(string: string): void {
     console.log(this.categoriasGeral);
     this.categoriasGeral.push(string);
+  }
+
+  testeCor(cor: string):void {
+
   }
 }

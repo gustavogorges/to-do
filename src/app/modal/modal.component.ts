@@ -19,6 +19,12 @@ export class ModalComponent implements OnInit {
   @Output() clicouCadastrarTipo = new EventEmitter();
 
   ngOnInit() {
+    let cores:String[];
+    cores = JSON.parse(localStorage.getItem("CoresGeral"));
+    if( cores != null ){
+      this.coresGeral = cores;
+    }
+
     if (JSON.parse(localStorage.getItem("CategoriasGeral")) != null) {
       this.categoriasGeral = JSON.parse(
         localStorage.getItem("CategoriasGeral")
@@ -49,5 +55,6 @@ export class ModalComponent implements OnInit {
       JSON.stringify(this.categoriasGeral)
     );
     this.tarefaTipo = "";
+    this.tarefaCor = "";
   }
 }

@@ -12,7 +12,7 @@
 <div class="listaCategorias">
   <h1 class="titleLista">Lista de Categorias</h1>
   <ul class="lista">
-    <li *ngFor="let item of categoriasGeral; index as indice">
+    <li *ngFor="let item of categoriasGeral; index as indice" [style.background-color]="coresGeral[indice]" class="itemCategoria">
       {{ item }}
       <a href="#" class="btnRemove" (click)="removerClasse(indice)">X</a>
     </li>
