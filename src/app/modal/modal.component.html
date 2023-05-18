@@ -1,7 +1,17 @@
 <div class="flexTarefa">
-    <div class="modalNovaTarefa">
-      <h1 class="modalTitle">Nova Categoria</h1>
-      <input class="inputNovaTarefa" [(ngModel)]="tarefaTipo" type="text">
-      <a class="botaoFecharModal" (click)="cadastrarTipo()">Cadastrar</a>
-    </div>
+  <div class="modalNovaTarefa">
+    <h1 class="modalTitle">Nova Categoria</h1>
+    <input class="inputNovaTarefa" [(ngModel)]="tarefaTipo" type="text" />
+    <a class="botaoFecharModal" (click)="cadastrarTipo()">Cadastrar</a>
+  </div>
+</div>
+
+<div class="listaCategorias">
+  <h1 class="titleLista">Lista de Categorias</h1>
+  <ul class="lista">
+    <li *ngFor="let item of categoriasGeral; index as indice">
+      {{ item }}
+      <a href="#" class="btnRemove" (click)="removerClasse(indice)">X</a>
+    </li>
+  </ul>
 </div>

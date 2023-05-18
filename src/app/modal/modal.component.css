@@ -1,30 +1,54 @@
 .modalNovaTarefa {
-    position: absolute;
-    height: 260px;
-    width: 100vh;
-    background-color: rgb(197, 196, 196);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: 260px;
+  width: 100vh;
+  background-color: rgb(197, 196, 196);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .flexTarefa {
-    margin-top: 30px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .botaoFecharModal {
-    padding: 10px 15px;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    cursor: pointer;
+  padding: 10px 15px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .inputNovaTarefa {
-    padding: 5px;
-    margin-bottom: 30px;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.listaCategorias {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista li {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.btnRemove {
+  text-decoration: none;
+  font-weight: bold;
+  color: red;
+  font-family: sans-serif;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 interface Tarefa {
   nomeTarefa: string;
@@ -7,9 +7,9 @@ interface Tarefa {
 }
 
 @Component({
-  selector: 'app-regitro',
-  templateUrl: './regitro.component.html',
-  styleUrls: ['./regitro.component.css']
+  selector: "app-regitro",
+  templateUrl: "./regitro.component.html",
+  styleUrls: ["./regitro.component.css"],
 })
 export class RegitroComponent implements OnInit {
   tarefasGeral: Tarefa[] = [];
@@ -24,9 +24,8 @@ export class RegitroComponent implements OnInit {
   static mostraModal: boolean;
 
   ngOnInit() {
-    
-      this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"))
-    
+    this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"));
+
     if (localStorage.getItem("TarefasGeral") != null) {
       this.tarefasGeral = JSON.parse(localStorage.getItem("TarefasGeral"));
     }
@@ -38,14 +37,23 @@ export class RegitroComponent implements OnInit {
     codigoTarefa: 0,
   };
 
+  removerClasse(indice: number): void {
+    console.log(indice);
+    this.categoriasGeral.splice(indice, 1);
+    localStorage.setItem(
+      "CategoriasGeral",
+      JSON.stringify(this.categoriasGeral)
+    );
+  }
+
   esconderInput(): void {
     this.mostraInput = false;
-    console.log(this.mostraInput)
+    console.log(this.mostraInput);
   }
 
   mostrarInput(): void {
     this.mostraInput = true;
-    console.log(this.mostraInput)
+    console.log(this.mostraInput);
   }
 
   mostrarTarefa(): void {
@@ -59,38 +67,35 @@ export class RegitroComponent implements OnInit {
       codigoTarefa: this.tarefa.codigoTarefa++,
     };
 
-    this.tarefasGeral.push(tarefaList)
-    console.log(tarefaList.classeTarefa)
-    console.log(this.categoriasGeral)
-    console.log(this.tarefasGeral)
+    this.tarefasGeral.push(tarefaList);
+    console.log(tarefaList.classeTarefa);
+    console.log(this.categoriasGeral);
+    console.log(this.tarefasGeral);
 
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
     localStorage.setItem("Categorias", JSON.stringify(this.categoriasGeral));
     this.tarefa.nomeTarefa = "";
   }
 
-  
-  mudarCategoria(indice : number, codigo : number) {
-    localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
-
-  }
-
-  removerTarefa(indice : number) : void {
-    this.tarefasGeral.splice(indice , 1);
+  mudarCategoria(indice: number, codigo: number) {
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
   }
 
-  mostrarModal() : void {
+  removerTarefa(indice: number): void {
+    this.tarefasGeral.splice(indice, 1);
+    localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
+  }
+
+  mostrarModal(): void {
     this.mostraModal = true;
   }
 
-  esconderModal() : void {
+  esconderModal(): void {
     this.mostraModal = false;
   }
 
-  novoTipoTarefa(string: string) : void {
-    console.log(this.categoriasGeral)
+  novoTipoTarefa(string: string): void {
+    console.log(this.categoriasGeral);
     this.categoriasGeral.push(string);
   }
-
 }

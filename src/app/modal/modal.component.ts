@@ -1,37 +1,50 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { AppComponent } from "../app.component";
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  selector: "app-modal",
+  templateUrl: "./modal.component.html",
+  styleUrls: ["./modal.component.css"],
 })
 export class ModalComponent implements OnInit {
   categoriasGeral: String[] = [];
-  tarefaTipo : string ;
+  tarefaTipo: string;
 
-  constructor() { }
+  constructor() {}
 
   @Output() clicouFecharModal = new EventEmitter();
 
   @Output() clicouCadastrarTipo = new EventEmitter();
 
   ngOnInit() {
-    if(JSON.parse(localStorage.getItem("CategoriasGeral")) != null){
-      this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"))
+    if (JSON.parse(localStorage.getItem("CategoriasGeral")) != null) {
+      this.categoriasGeral = JSON.parse(
+        localStorage.getItem("CategoriasGeral")
+      );
     }
   }
 
-  esconderModal() : void {
-    this.clicouFecharModal.emit()
+  removerClasse(indice: number): void {
+    console.log(indice);
+    this.categoriasGeral.splice(indice, 1);
+    localStorage.setItem(
+      "CategoriasGeral",
+      JSON.stringify(this.categoriasGeral)
+    );
   }
 
-  cadastrarTipo() : void {
+  esconderModal(): void {
+    this.clicouFecharModal.emit();
+  }
+
+  cadastrarTipo(): void {
     console.log(this.categoriasGeral, this.tarefaTipo);
-    this.categoriasGeral.push(this.tarefaTipo)
-    console.log(this.categoriasGeral)
-    localStorage.setItem("CategoriasGeral", JSON.stringify(this.categoriasGeral));
+    this.categoriasGeral.push(this.tarefaTipo);
+    console.log(this.categoriasGeral);
+    localStorage.setItem(
+      "CategoriasGeral",
+      JSON.stringify(this.categoriasGeral)
+    );
     this.tarefaTipo = "";
   }
-
 }
