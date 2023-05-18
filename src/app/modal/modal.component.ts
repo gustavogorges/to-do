@@ -35,9 +35,14 @@ export class ModalComponent implements OnInit {
   removerClasse(indice: number): void {
     console.log(indice);
     this.categoriasGeral.splice(indice, 1);
+    this.coresGeral.splice(indice,1);
     localStorage.setItem(
       "CategoriasGeral",
       JSON.stringify(this.categoriasGeral)
+    );
+    localStorage.setItem(
+      "CoresGeral",
+      JSON.stringify(this.coresGeral)
     );
   }
 

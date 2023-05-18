@@ -31,7 +31,7 @@
       <div class="Box" *ngFor="let div of categoriasGeral; index as indice" [style.background-color]="coresGeral[indice]">
         <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
         <div class="btnsBox">
-          <h1>{{ div }}</h1>
+          <h1 class="nomeCategoria">{{ div }}</h1>
         </div>
         <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
           <div *ngIf="div == tarefa.classeTarefa" class="teste">
