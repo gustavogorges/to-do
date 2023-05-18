@@ -8,7 +8,9 @@ import { AppComponent } from "../app.component";
 })
 export class ModalComponent implements OnInit {
   categoriasGeral: String[] = [];
+  coresGeral: String[] = [];
   tarefaTipo: string;
+  tarefaCor: string;
 
   constructor() {}
 
@@ -38,9 +40,10 @@ export class ModalComponent implements OnInit {
   }
 
   cadastrarTipo(): void {
-    console.log(this.categoriasGeral, this.tarefaTipo);
+    this.coresGeral.push(this.tarefaCor);
     this.categoriasGeral.push(this.tarefaTipo);
-    console.log(this.categoriasGeral);
+
+    localStorage.setItem("CoresGeral", JSON.stringify(this.coresGeral));
     localStorage.setItem(
       "CategoriasGeral",
       JSON.stringify(this.categoriasGeral)

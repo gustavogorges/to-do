@@ -14,6 +14,7 @@ interface Tarefa {
 export class RegitroComponent implements OnInit {
   tarefasGeral: Tarefa[] = [];
   categoriasGeral: String[] = [];
+  coresGeral: String[] = [];
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -25,6 +26,7 @@ export class RegitroComponent implements OnInit {
 
   ngOnInit() {
     this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"));
+    this.coresGeral = JSON.parse(localStorage.getItem("CoresGeral"));
 
     if (localStorage.getItem("TarefasGeral") != null) {
       this.tarefasGeral = JSON.parse(localStorage.getItem("TarefasGeral"));

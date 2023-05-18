@@ -1,7 +1,10 @@
 <div class="flexTarefa">
   <div class="modalNovaTarefa">
     <h1 class="modalTitle">Nova Categoria</h1>
-    <input class="inputNovaTarefa" [(ngModel)]="tarefaTipo" type="text" />
+    <div class="inputs">
+      <input class="inputNovaTarefa" [(ngModel)]="tarefaTipo" type="text" />
+      <input class="inputColor" type="color" [(ngModel)]="tarefaCor">
+    </div>
     <a class="botaoFecharModal" (click)="cadastrarTipo()">Cadastrar</a>
   </div>
 </div>
