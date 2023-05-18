@@ -34,7 +34,7 @@
           <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
         </div>
         <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
-          <div *ngIf="div == tarefa.classeTarefa">
+          <div *ngIf="div == tarefa.classeTarefa" class="teste">
             {{ tarefa.nomeTarefa }}
             <select
               (change)="mudarCategoria()"
