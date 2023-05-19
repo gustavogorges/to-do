@@ -1,24 +1,21 @@
 <div class="mainDiv">
   <div class="mainHeader">
+    <div class="titleDiv">
+      <p class="cadastroTarefaTitle">Cadastre a sua Tarefa Aqui!</p>
+    </div>
     <div class="mainCadastro">
       <input
         *ngIf="mostraInput"
-        placeholder="Nome"
+        placeholder="Nome Tarefa"
         [(ngModel)]="tarefa.nomeTarefa"
+        class="inputTarefa"
       />
 
       <select [(ngModel)]="tarefa.classeTarefa">
         <option *ngFor="let item of categoriasGeral">{{ item }}</option>
       </select>
 
-      <button (click)="cadastrarTarefa()">Cadastro</button>
-
-      <button *ngIf="mostraInput" (click)="esconderInput()">
-        Esconder input
-      </button>
-      <button *ngIf="!mostraInput" (click)="mostrarInput()">
-        Mostrar input
-      </button>
+      <button class="btnCadastrar" (click)="cadastrarTarefa()">Cadastro</button>
     </div>
     <app-modal
       *ngIf="mostraModal"
@@ -28,7 +25,7 @@
 
   <section class="Content">
     <div class="mainBox">
-      <div class="Box" *ngFor="let div of categoriasGeral; index as indice" [style.background-color]="coresGeral[indice]">
+      <div class="Box" *ngFor="let div of categoriasGeral; index as indice" [style.border-color]="coresGeral[indice]">
         <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
         <div class="btnsBox">
           <h1 class="nomeCategoria">{{ div }}</h1>

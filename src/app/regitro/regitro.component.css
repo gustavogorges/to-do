@@ -37,8 +37,10 @@
   justify-content: center;
 }
 
-.Box:hover {
-  border: 2px solid #000;
+.Box {
+  border: 5px solid #000;
+  border-top: 5px solid #000;
+  background-color: rgb(243, 243, 243)
 }
 
 .novoTipoTarefa {
@@ -76,4 +78,30 @@
 
 .btnsBox {
   display: flex;
+}
+
+.titleDiv {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.cadastroTarefaTitle {
+  padding-bottom: 3px;
+  font-family: sans-serif;
+  font-size: 25px;
+  border-bottom: 4px solid #294936;
+}
+
+.inputTarefa {
+  font-size: 22px;
+}
+
+.btnCadastrar {
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #294936;
+  color: #fff;
+  padding: 5px;
+  margin-left: 1%;
 }

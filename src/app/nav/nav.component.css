@@ -2,14 +2,17 @@ nav {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: #000;
+    background-color: #294936;
     align-items: center;
-    height: 50px;
+    height: 70px;
     gap: 20%;
 }
 
 nav a{
+    font-family: sans-serif;
     margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
     text-decoration: none;
     color: #fff;
 }
