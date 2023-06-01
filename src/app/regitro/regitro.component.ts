@@ -15,6 +15,7 @@ export class RegitroComponent implements OnInit {
   tarefasGeral: Tarefa[] = [];
   categoriasGeral: String[] = [];
   coresGeral: String[] = [];
+  dragTarefa: Tarefa[] = [];
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -110,5 +111,22 @@ export class RegitroComponent implements OnInit {
 
   testeCor(cor: string):void {
 
+  }
+
+  allowDrop(ev) {
+    ev.preventDefault();
+    ev.dataTransfer.dropEffect = "move";
+  }
+
+  drag(tarefa:Tarefa) : void {
+    const categoria:string = JSON.parse(localStorage.getItem("dragTarefas"));
+    if(categoria != null){
+      tarefa.classeTarefa = categoria;
+      localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
+    }
+  }
+
+  atualizarCategoria(div) : void {
+    localStorage.setItem("dragTarefas",JSON.stringify(div))
   }
 }

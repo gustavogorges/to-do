@@ -25,13 +25,23 @@
 
   <section class="Content">
     <div class="mainBox">
-      <div class="Box" *ngFor="let div of categoriasGeral; index as indice" [style.border-color]="coresGeral[indice]">
+      <div class="Box"
+       *ngFor="let div of categoriasGeral; index as indice"
+        [style.border-color]="coresGeral[indice]"
+        (drop)="drop($event)" 
+        (dragover)="atualizarCategoria(div)"
+        >
         <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
         <div class="btnsBox">
           <h1 class="nomeCategoria">{{ div }}</h1>
         </div>
         <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
-          <div *ngIf="div == tarefa.classeTarefa" class="teste">
+          <div 
+          *ngIf="div == tarefa.classeTarefa"
+          class="teste"
+          draggable="true" 
+          (dragend)="drag(tarefa)" 
+          >  
             {{ tarefa.nomeTarefa }}
             <select
               (change)="mudarCategoria()"
