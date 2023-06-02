@@ -28,7 +28,6 @@
       <div class="Box"
        *ngFor="let div of categoriasGeral; index as indice"
         [style.border-color]="coresGeral[indice]"
-        (drop)="drop($event)" 
         (dragover)="atualizarCategoria(div)"
         >
         <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
