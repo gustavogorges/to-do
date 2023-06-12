@@ -133,10 +133,9 @@ export class RegitroComponent implements OnInit {
   }
 
   
-  dragoverCategoria(cat: string, event: Event) : void {
+  dragoverCategoria(categoria: string, event: Event) : void {
     event.preventDefault();
-    this.categoriaDrop = cat;
-    console.log(cat)
+    this.categoriaDrop = categoria;
   }
 
   dropCategoria(event: Event) {
