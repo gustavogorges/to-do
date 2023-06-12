@@ -1,0 +1,59 @@
+<div class="mainDiv">
+  <div class="mainHeader">
+    <div class="titleDiv">
+      <p class="cadastroTarefaTitle">Cadastre a sua Tarefa Aqui!</p>
+    </div>
+    <div class="mainCadastro">
+      <input
+        *ngIf="mostraInput"
+        placeholder="Nome Tarefa"
+        [(ngModel)]="tarefa.nomeTarefa"
+        class="inputTarefa"
+      />
+
+      <select [(ngModel)]="tarefa.classeTarefa">
+        <option *ngFor="let item of categoriasGeral">{{ item }}</option>
+      </select>
+
+      <button class="btnCadastrar" (click)="cadastrarTarefa()">Cadastro</button>
+    </div>
+    <app-modal
+      *ngIf="mostraModal"
+      (clicouCadastrarTipo)="novoTipoTarefa($event)"
+    ></app-modal>
+  </div>
+
+  <section class="Content">
+    <div class="mainBox">
+      <div class="Box"
+       *ngFor="let div of categoriasGeral; index as indice"
+        [style.border-color]="coresGeral[indice]"
+        (dragover)="dragoverCategoria(div, $event)"
+        (drop)="dropCategoria($event)">
+
+        <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
+        <div class="btnsBox">
+          <h1 class="nomeCategoria">{{ div }}</h1>
+        </div>
+        <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
+          <div 
+          *ngIf="div == tarefa.classeTarefa"
+          class="teste"
+          draggable="true"
+          (dragstart)="dragstart(tarefa)"
+          (drop)="getIndex($event, indice)" 
+          >  
+            {{ tarefa.nomeTarefa }}
+            <select
+              (change)="mudarCategoria()"
+              [(ngModel)]="tarefa.classeTarefa"
+            >
+              <option *ngFor="let item of categoriasGeral">{{ item }}</option>
+            </select>
+            <button (click)="removerTarefa(indice)">Remover</button>
+          </div>
+        </h4>
+      </div>
+    </div>
+  </section>
+</div>
