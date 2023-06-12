@@ -13,9 +13,12 @@ interface Tarefa {
 })
 export class RegitroComponent implements OnInit {
   tarefasGeral: Tarefa[] = [];
-  categoriasGeral: String[] = [];
-  coresGeral: String[] = [];
+  categoriasGeral: string[] = [];
+  coresGeral: string[] = [];
   dragTarefa: Tarefa[] = [];
+
+  categoriaDrop: string;
+  tarefaDrag: Tarefa;
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -117,16 +120,32 @@ export class RegitroComponent implements OnInit {
     ev.preventDefault();
     ev.dataTransfer.dropEffect = "move";
   }
+  
+  indexDrag: number;
 
-  drag(tarefa:Tarefa) : void {
-    const categoria:string = JSON.parse(localStorage.getItem("dragTarefas"));
-    if(categoria != null){
-      tarefa.classeTarefa = categoria;
-      localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
-    }
+  getIndex(event: Event, index: number) : void {
+    event.preventDefault();
+    this.indexDrag = index;
   }
 
-  atualizarCategoria(div) : void {
-    localStorage.setItem("dragTarefas",JSON.stringify(div))
+  dragstart(tarefa: Tarefa) {
+    this.tarefaDrag = tarefa;
   }
+
+  
+  dragoverCategoria(cat: string, event: Event) : void {
+    event.preventDefault();
+    this.categoriaDrop = cat;
+    console.log(cat)
+  }
+
+  dropCategoria(event: Event) {
+    event.preventDefault();
+    this.tarefaDrag.classeTarefa = this.categoriaDrop;
+
+
+    this.tarefasGeral.splice(this.tarefasGeral.indexOf(this.tarefaDrag), 1);
+    this.tarefasGeral.splice(this.indexDrag, 0, this.tarefaDrag);
+  }
+
 }
