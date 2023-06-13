@@ -16,6 +16,10 @@
 
 .teste {
   word-break: break-all;
+  background-color: #3d6e51;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
 }
 
 .mainHeader {
@@ -38,9 +42,8 @@
 }
 
 .Box {
-  border: 5px solid #000;
-  border-top: 5px solid #000;
-  background-color: rgb(243, 243, 243)
+  background-color: rgb(216, 216, 216);
+  border-radius: 10px;
 }
 
 .novoTipoTarefa {
@@ -50,6 +53,17 @@
   color: #fff;
   border-radius: 15px;
   margin: 0 auto;
+}
+
+.nomeCategoria {
+  background-color: #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.flexTitleBox {
+  display: flex;
+  justify-content: space-between;
 }
 
 .flexBotao {
@@ -74,6 +88,8 @@
   font-weight: bold;
   margin-top: 12%;
   -webkit-text-stroke: 0.9px black;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .btnsBox {

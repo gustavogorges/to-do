@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { callLifecycleHooksChildrenFirst } from "@angular/core/src/view/provider";
 
 interface Tarefa {
   nomeTarefa: string;
@@ -16,9 +17,11 @@ export class RegitroComponent implements OnInit {
   categoriasGeral: string[] = [];
   coresGeral: string[] = [];
   dragTarefa: Tarefa[] = [];
+  propriedadesGeral: String[] = [];
 
   categoriaDrop: string;
   tarefaDrag: Tarefa;
+  click: boolean = false;
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -29,6 +32,7 @@ export class RegitroComponent implements OnInit {
   static mostraModal: boolean;
 
   ngOnInit() {
+    this.propriedadesGeral = JSON.parse(localStorage.getItem("PropriedadesGeral"))
     this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"));
     this.coresGeral = JSON.parse(localStorage.getItem("CoresGeral"));
 
@@ -145,6 +149,16 @@ export class RegitroComponent implements OnInit {
 
     this.tarefasGeral.splice(this.tarefasGeral.indexOf(this.tarefaDrag), 1);
     this.tarefasGeral.splice(this.indexDrag, 0, this.tarefaDrag);
+  }
+
+  Click() : void {
+      if(this.click == false) {
+        this.click = true;
+        console.log("1")
+      } else {
+        this.click = false;
+        console.log("2")
+      }
   }
 
 }

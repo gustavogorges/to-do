@@ -27,16 +27,17 @@
     <div class="mainBox">
       <div class="Box"
        *ngFor="let div of categoriasGeral; index as indice"
-        [style.border-color]="coresGeral[indice]"
         (dragover)="dragoverCategoria(div, $event)"
         (drop)="dropCategoria($event)">
-
-        <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
-        <div class="btnsBox">
-          <h1 class="nomeCategoria">{{ div }}</h1>
+        <div class="flexTitleBox">
+          <h1 class="nomeCategoria"
+          [style.background-color]="coresGeral[indice]"
+          >{{ div }}</h1>
+          <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
         </div>
         <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
           <div 
+          (click)="Click()"
           *ngIf="div == tarefa.classeTarefa"
           class="teste"
           draggable="true"
@@ -50,6 +51,11 @@
             >
               <option *ngFor="let item of categoriasGeral">{{ item }}</option>
             </select>
+            <div *ngIf="click">
+              <input
+              *ngFor="let propriedade of propriedadesGeral"
+               >
+            </div>
             <button (click)="removerTarefa(indice)">Remover</button>
           </div>
         </h4>

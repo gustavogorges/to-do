@@ -6,13 +6,15 @@ import { ModalComponent } from './modal/modal.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegitroComponent } from './regitro/regitro.component';
 import { NavComponent } from './nav/nav.component';
+import { PropriedadeComponent } from './propriedade/propriedade.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalComponent,
     RegitroComponent,
-    NavComponent
+    NavComponent,
+    PropriedadeComponent
   ],
   imports: [
     BrowserModule,

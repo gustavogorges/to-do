@@ -4,6 +4,7 @@ import { AppComponent } from "./app.component";
 import { RegitroComponent } from "./regitro/regitro.component";
 import { ModalComponent } from "./modal/modal.component";
 import { registerContentQuery } from "@angular/core/src/render3/instructions";
+import { PropriedadeComponent } from "./propriedade/propriedade.component";
 
 const rotas: Route[] = [
   {
@@ -18,6 +19,10 @@ const rotas: Route[] = [
     path: "",
     component: RegitroComponent,
   },
+  {
+    path: "propriedades",
+    component: PropriedadeComponent
+  }
 ];
 
 @NgModule({
