@@ -54,6 +54,7 @@
   background-color: #000;
   padding: 10px;
   border-radius: 10px;
+  font-size: 25px;
 }
 
 .flexTitleBox {
@@ -97,9 +98,14 @@
   justify-content: center;
 }
 
+.nomeTarefa:hover {
+  cursor: pointer;
+}
+
 .cadastroTarefaTitle {
   padding-bottom: 3px;
   font-family: sans-serif;
+  font-weight: bold;
   font-size: 25px;
   border-bottom: 4px solid #294936;
 }

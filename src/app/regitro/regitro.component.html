@@ -43,7 +43,7 @@
           (dragstart)="dragstart(tarefa)"
           (drop)="getIndex($event, indice)" 
           >  
-            <p (click)="Click()">{{ tarefa.nomeTarefa }}</p>
+            <p class="nomeTarefa" (click)="Click()">{{ tarefa.nomeTarefa }}</p>
             <p *ngIf="click">seleção</p>
             <select
               (change)="mudarCategoria()"
@@ -56,7 +56,7 @@
              *ngFor="let propriedade of propriedadesGeral"
              class="divPropriedades"
              >
-             <p *ngIf="click">{{propriedade}}</p>
+             <p *ngIf="click">{{propriedade.nomePropriedade}}</p>
               <input
               class="inputTexto" 
               *ngIf="click"

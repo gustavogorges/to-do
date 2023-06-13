@@ -2,10 +2,10 @@
   <div class="modalNovaTarefa">
     <h1 class="modalTitle">Nova Propriedade</h1>
     <div class="inputs">
-      <input class="inputNovaPropriedade" [(ngModel)]="propriedadeNova" type="text" />
+      <input class="inputNovaPropriedade" [(ngModel)]="propriedade.nomePropriedade" type="text" />
       <select
        class="selectTipoDados"
-       [(ngModel)]="tipoDado"
+       [(ngModel)]="propriedade.tipoDado"
        >
         <option></option>
         <option>Número</option>
@@ -13,7 +13,7 @@
         <option>Seleção</option>
       </select>
       <select
-        *ngIf = "tipoDado == 'Seleção'"
+        *ngIf = "propriedade.tipoDado == 'Seleção'"
         class="selectSelecao"
         >
         <option></option>
@@ -28,7 +28,7 @@
   <h1 class="titleLista">Lista de Propriedades</h1>
   <ul class="lista">
     <li *ngFor="let propriedade of propriedadesGeral; index as indice" class="itemPropriedade">
-      {{ propriedade }}
+      {{ propriedade.nomePropriedade }}
       <a href="#" class="btnRemove" (click)="removerClasse(indice)">X</a>
     </li>
   </ul>

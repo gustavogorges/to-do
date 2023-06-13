@@ -7,6 +7,13 @@ interface Tarefa {
   codigoTarefa: number;
 }
 
+interface Propriedade {
+  nomePropriedade: string;
+  tipoDado: string;
+  indicePropriedade: number;
+  valorPropriedade: String;
+}
+
 @Component({
   selector: "app-regitro",
   templateUrl: "./regitro.component.html",
@@ -17,13 +24,11 @@ export class RegitroComponent implements OnInit {
   categoriasGeral: string[] = [];
   coresGeral: string[] = [];
   dragTarefa: Tarefa[] = [];
-  propriedadesGeral: String[] = [];
-  valoresPropriedades: String[] = [];
+  propriedadesGeral: Propriedade[] = [];
 
   categoriaDrop: string;
   tarefaDrag: Tarefa;
   click: boolean = false;
-  valorPropriedade: String;
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -43,9 +48,7 @@ export class RegitroComponent implements OnInit {
       this.tarefasGeral = JSON.parse(localStorage.getItem("TarefasGeral"));
     }
 
-    if(localStorage.getItem("ValoresPropriedades") != null) {
-      this.propriedadesGeral = JSON.parse(localStorage.getItem("ValoresPropriedades"))
-    }
+  
   }
 
   tarefa: Tarefa = {
@@ -169,8 +172,7 @@ export class RegitroComponent implements OnInit {
   }
 
   cadastroValorPropriedade() : void {
-    this.valoresPropriedades.push(this.valorPropriedade);
-    localStorage.setItem("ValoresPropriedades", JSON.stringify(this.valoresPropriedades))
+    
   }
 
 }
