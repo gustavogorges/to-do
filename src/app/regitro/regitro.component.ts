@@ -18,10 +18,12 @@ export class RegitroComponent implements OnInit {
   coresGeral: string[] = [];
   dragTarefa: Tarefa[] = [];
   propriedadesGeral: String[] = [];
+  valoresPropriedades: String[] = [];
 
   categoriaDrop: string;
   tarefaDrag: Tarefa;
   click: boolean = false;
+  valorPropriedade: String;
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -35,9 +37,14 @@ export class RegitroComponent implements OnInit {
     this.propriedadesGeral = JSON.parse(localStorage.getItem("PropriedadesGeral"))
     this.categoriasGeral = JSON.parse(localStorage.getItem("CategoriasGeral"));
     this.coresGeral = JSON.parse(localStorage.getItem("CoresGeral"));
+    
 
     if (localStorage.getItem("TarefasGeral") != null) {
       this.tarefasGeral = JSON.parse(localStorage.getItem("TarefasGeral"));
+    }
+
+    if(localStorage.getItem("ValoresPropriedades") != null) {
+      this.propriedadesGeral = JSON.parse(localStorage.getItem("ValoresPropriedades"))
     }
   }
 
@@ -154,11 +161,16 @@ export class RegitroComponent implements OnInit {
   Click() : void {
       if(this.click == false) {
         this.click = true;
-        console.log("1")
+        console.log(this.propriedadesGeral)
       } else {
         this.click = false;
-        console.log("2")
+        console.log("0")
       }
+  }
+
+  cadastroValorPropriedade() : void {
+    this.valoresPropriedades.push(this.valorPropriedade);
+    localStorage.setItem("ValoresPropriedades", JSON.stringify(this.valoresPropriedades))
   }
 
 }

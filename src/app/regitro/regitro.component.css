@@ -5,18 +5,14 @@
 .mainBox {
   margin-top: 60px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 300px);
   column-gap: 50px;
   row-gap: 50px;
 }
 
-.Box {
-  padding: 30px;
-}
-
 .teste {
   word-break: break-all;
-  background-color: #3d6e51;
+  background-color: #d4d4d4;
   padding: 10px;
   border-radius: 10px;
   display: block;
@@ -42,7 +38,6 @@
 }
 
 .Box {
-  background-color: rgb(216, 216, 216);
   border-radius: 10px;
 }
 
@@ -120,4 +115,17 @@
   color: #fff;
   padding: 5px;
   margin-left: 1%;
+}
+
+.inputTexto {
+  width: 75%;
+}
+
+.divPropriedades {
+  margin: 0;
+  padding: 0;
+}
+
+.botaoRemoverTarefa {
+  margin-top: 20px;
 }
