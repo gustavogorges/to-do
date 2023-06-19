@@ -43,12 +43,12 @@
           (dragstart)="dragstart(tarefa)"
           (drop)="getIndex($event, indice)" 
           >  
-            <p class="nomeTarefa" (click)="Click()">{{ tarefa.nomeTarefa }}</p>
-            <p *ngIf="click">seleção</p>
+            <p class="nomeTarefa" (click)="Click(tarefa)">{{ tarefa.nomeTarefa }}</p>
+            <p *ngIf="tarefa.click">seleção</p>
             <select
               (change)="mudarCategoria()"
               [(ngModel)]="tarefa.classeTarefa"
-              *ngIf="click"
+              *ngIf="tarefa.click"
             >
               <option *ngFor="let item of categoriasGeral">{{ item }}</option>
             </select>
@@ -56,12 +56,14 @@
              *ngFor="let propriedade of propriedadesGeral"
              class="divPropriedades"
              >
-             <p *ngIf="click">{{propriedade.nomePropriedade}}</p>
+             <p *ngIf="tarefa.click">{{propriedade.nomePropriedade}}</p>
               <input
               class="inputTexto" 
-              *ngIf="click"
+              *ngIf="tarefa.click && tarefa.propriedade == null"
+              [(ngModel)]="propriedadeTexto"
                >
-               <button (click)="cadastroValorPropriedade()" *ngIf="click">cadastro</button>
+               <p *ngIf="tarefa.propriedade != null">{{tarefa.propriedade}}</p>
+               <button (click)="cadastroValorPropriedade(propriedadeTexto, indice, tarefa)" *ngIf="tarefa.click && tarefa.propriedade == null">cadastro</button>
             </div>
             <button class="botaoRemoverTarefa" (click)="removerTarefa(indice)">Remover</button>
           </div>

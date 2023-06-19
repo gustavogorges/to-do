@@ -5,6 +5,8 @@ interface Tarefa {
   nomeTarefa: string;
   classeTarefa: string;
   codigoTarefa: number;
+  propriedade : string ;
+  click : boolean
 }
 
 interface Propriedade {
@@ -20,6 +22,7 @@ interface Propriedade {
   styleUrls: ["./regitro.component.css"],
 })
 export class RegitroComponent implements OnInit {
+
   tarefasGeral: Tarefa[] = [];
   categoriasGeral: string[] = [];
   coresGeral: string[] = [];
@@ -29,6 +32,7 @@ export class RegitroComponent implements OnInit {
   categoriaDrop: string;
   tarefaDrag: Tarefa;
   click: boolean = false;
+  propriedadeTexto: string;
 
   mostraInput: boolean = true;
   mostraTarefa: boolean = true;
@@ -55,6 +59,8 @@ export class RegitroComponent implements OnInit {
     nomeTarefa: "",
     classeTarefa: "",
     codigoTarefa: 0,
+    click: false,
+    propriedade : ""
   };
 
   removerClasse(indice: number): void {
@@ -89,17 +95,15 @@ export class RegitroComponent implements OnInit {
       nomeTarefa: this.tarefa.nomeTarefa,
       classeTarefa: this.tarefa.classeTarefa,
       codigoTarefa: this.tarefa.codigoTarefa++,
+      click: false,
+      propriedade : this.tarefa.propriedade
     };
 
     this.tarefasGeral.push(tarefaList);
-    console.log(tarefaList.classeTarefa);
-    console.log(this.categoriasGeral);
-    console.log(this.tarefasGeral);
 
     localStorage.setItem("TarefasGeral", JSON.stringify(this.tarefasGeral));
     localStorage.setItem("Categorias", JSON.stringify(this.categoriasGeral));
 
-    // if((this.coresGeral[this.tarefa.codigoTarefa] + 0.05) / (0.0 + 0.05) > (1.0 + 0.05) / (L + 0.05)  )
 
     this.tarefa.nomeTarefa = "";
   }
@@ -161,18 +165,25 @@ export class RegitroComponent implements OnInit {
     this.tarefasGeral.splice(this.indexDrag, 0, this.tarefaDrag);
   }
 
-  Click() : void {
-      if(this.click == false) {
-        this.click = true;
-        console.log(this.propriedadesGeral)
-      } else {
-        this.click = false;
-        console.log("0")
-      }
+  Click(tarefa : Tarefa) : void {
+      this.tarefasGeral.forEach(tarefaFor => {
+        if(tarefaFor.nomeTarefa == tarefa.nomeTarefa) {
+        if(tarefa.click == false) {
+          tarefa.click = true;
+        }
+        else {
+          tarefa.click = false;
+        }
+       } 
+      });
+      
   }
 
-  cadastroValorPropriedade() : void {
-    
+  cadastroValorPropriedade(propriedade : string, indice : number, tarefa : Tarefa) : void {
+    console.log(tarefa)
+    this.tarefa.propriedade = propriedade;
+    this.tarefasGeral.splice(indice,0,tarefa)
+    localStorage.setItem('TarefasGeral', JSON.stringify(this.tarefasGeral))
   }
 
 }
