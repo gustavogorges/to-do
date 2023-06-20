@@ -60,7 +60,7 @@ export class RegitroComponent implements OnInit {
     classeTarefa: "",
     codigoTarefa: 0,
     click: false,
-    propriedade : ""
+    propriedade : null
   };
 
   removerClasse(indice: number): void {

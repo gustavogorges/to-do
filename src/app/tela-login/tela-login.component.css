@@ -1,0 +1,16 @@
+
+.main {
+    width: 80vw;
+    margin: 0 auto;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+}
+
+.loginBox {
+    height: 105%;
+    width: 60%;
+    background-color: #294936;
+    display: flex;
+    justify-content: center;
+}

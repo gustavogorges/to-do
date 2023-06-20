@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <div class="mainDiv">
   <div class="mainHeader">
     <div class="titleDiv">
@@ -59,11 +60,11 @@
              <p *ngIf="tarefa.click">{{propriedade.nomePropriedade}}</p>
               <input
               class="inputTexto" 
-              *ngIf="tarefa.click && tarefa.propriedade == null"
+              *ngIf="tarefa.click"
               [(ngModel)]="propriedadeTexto"
                >
                <p *ngIf="tarefa.propriedade != null">{{tarefa.propriedade}}</p>
-               <button (click)="cadastroValorPropriedade(propriedadeTexto, indice, tarefa)" *ngIf="tarefa.click && tarefa.propriedade == null">cadastro</button>
+               <button (click)="cadastroValorPropriedade(propriedadeTexto, indice, tarefa)" *ngIf="tarefa.click">cadastro</button>
             </div>
             <button class="botaoRemoverTarefa" (click)="removerTarefa(indice)">Remover</button>
           </div>

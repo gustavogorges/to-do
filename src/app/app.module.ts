@@ -8,6 +8,7 @@ import { RegitroComponent } from './regitro/regitro.component';
 import { NavComponent } from './nav/nav.component';
 import { PropriedadeComponent } from './propriedade/propriedade.component';
 import { UserRepository } from 'src/repositories/user.repository';
+import { TelaLoginComponent } from './tela-login/tela-login.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserRepository } from 'src/repositories/user.repository';
     ModalComponent,
     RegitroComponent,
     NavComponent,
-    PropriedadeComponent
+    PropriedadeComponent,
+    TelaLoginComponent
   ],
   imports: [
     BrowserModule,

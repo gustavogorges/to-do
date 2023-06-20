@@ -1,0 +1,15 @@
+
+<div class="main">
+  <div class="loginBox">
+    <div class="contentBox">
+      <h1 class="titleBox">Login</h1>
+
+      <p class="inputText">Digite o seu usuario:</p>
+      <input type="text" [(ngModel)]="usuario.usuario">
+      <p class="inputText">Digite o sua senha:</p>
+      <input type="text" [(ngModel)]="usuario.senha">
+
+      <button class="loginBtn" (click)="verificaLogin()">Login</button>
+    </div>
+  </div>
+</div>
