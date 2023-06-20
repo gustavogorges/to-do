@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegitroComponent } from './regitro/regitro.component';
 import { NavComponent } from './nav/nav.component';
 import { PropriedadeComponent } from './propriedade/propriedade.component';
+import { UserRepository } from 'src/repositories/user.repository';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { PropriedadeComponent } from './propriedade/propriedade.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    UserRepository
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -61,5 +61,7 @@ export class ModalComponent implements OnInit {
     );
     this.tarefaTipo = "";
     this.tarefaCor = "";
+
+    
   }
 }
