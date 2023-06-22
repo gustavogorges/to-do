@@ -8,7 +8,8 @@ interface Tarefa {
   classeTarefa: string;
   codigoTarefa: number;
   propriedade : string ;
-  click : boolean
+  click : boolean;
+  draggable : boolean ;
 }
 
 interface Propriedade {
@@ -34,6 +35,11 @@ export class RegitroComponent implements OnInit {
     ) {
       
   }
+
+  propertieAddBoolean : boolean = true;
+  propertieEditBoolean : boolean = true;
+  propertieMoveBoolean : boolean = true;
+  propertieRemoveBoolean : boolean = true;
 
   tarefasGeral: Tarefa[] = [];
   categoriasGeral: string[] = [];
@@ -75,7 +81,10 @@ export class RegitroComponent implements OnInit {
     this.user = this.getUsuarioLogado();
     console.log(this.user)
 
-    this.disabled();
+    this.disabledAddCard();
+    this.disabledRemoveCard();
+    this.disabledEditCard();
+    this.disabledMoveCard();
   
   }
 
@@ -84,7 +93,8 @@ export class RegitroComponent implements OnInit {
     classeTarefa: "",
     codigoTarefa: 0,
     click: false,
-    propriedade : null
+    propriedade : null,
+    draggable : false
   };
 
   private getUsuarioLogado(): User | undefined {
@@ -93,11 +103,42 @@ export class RegitroComponent implements OnInit {
     });
   }
 
-  disabled() : void {
+  disabledAddCard() : void {
     console.log('entrou')
     this.user.cardPermissions.forEach(permission => {
       if(permission == 'Add') {
+        console.log('permissao de adicionar')
         this.cardAddBoolean = false;
+      }
+    });
+  }
+
+  disabledRemoveCard() : void {
+    console.log('entrou')
+    this.user.cardPermissions.forEach(permission => {
+      if(permission == 'Remove') {
+        console.log('permissao de remover')
+        this.cardRemoveBoolean = false;
+      }
+    });
+  }
+
+  disabledEditCard() : void {
+    this.user.cardPermissions.forEach(permission => {
+      if(permission == 'Edit') {
+        console.log('permissao de editar')
+        this.cardEditBoolean = false;
+      }
+    });
+  }
+
+  disabledMoveCard() : void {
+    console.log('entrou')
+    this.user.cardPermissions.forEach(permission => {
+      if(permission == 'Move') {
+        console.log('permissao de mover')
+        this.cardMoveBoolean = false;
+        this.tarefa.draggable = true;
       }
     });
   }
@@ -135,7 +176,8 @@ export class RegitroComponent implements OnInit {
       classeTarefa: this.tarefa.classeTarefa,
       codigoTarefa: this.tarefa.codigoTarefa++,
       click: false,
-      propriedade : this.tarefa.propriedade
+      propriedade : this.tarefa.propriedade,
+      draggable: false
     };
 
     this.tarefasGeral.push(tarefaList);

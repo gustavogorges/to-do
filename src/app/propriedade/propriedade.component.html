@@ -34,7 +34,8 @@
   <ul class="lista">
     <li *ngFor="let propriedade of propriedadesGeral; index as indice" class="itemPropriedade">
       {{ propriedade.nomePropriedade }}
-      <a href="#" class="btnRemove" (click)="removerClasse(indice)">X</a>
+      <button [disabled]="propertieRemoveBoolean" href="#" class="btnRemove" (click)="removerClasse(indice)">X</button>
+      <button [disabled]="propertieEditBoolean">editar</button>
     </li>
   </ul>
 </div>

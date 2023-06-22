@@ -10,7 +10,7 @@ import { UserRepository } from 'src/repositories/user.repository'
 export class AppComponent {
   title = 'to-do';
 
-  private userId : string = "joao.silva"
+  private userId : string = ""
   private users: User[] = [];
   public user : User | undefined;
 

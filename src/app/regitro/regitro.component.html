@@ -10,15 +10,17 @@
         placeholder="Nome Tarefa"
         [(ngModel)]="tarefa.nomeTarefa"
         class="inputTarefa"
+        [disabled]="cardAddBoolean"
       />
 
-      <select [(ngModel)]="tarefa.classeTarefa">
+      <select [(ngModel)]="tarefa.classeTarefa" [disabled]="cardAddBoolean">
         <option *ngFor="let item of categoriasGeral">{{ item }}</option>
       </select>
 
       <button
        class="btnCadastrar"
        (click)="cadastrarTarefa()"
+       [disabled]="cardAddBoolean"
         >Cadastro</button>
     </div>
     <app-modal
@@ -37,17 +39,18 @@
           <h1 class="nomeCategoria"
           [style.background-color]="coresGeral[indice]"
           >{{ div }}</h1>
-          <a href="#" class="removeBtn" (click)="removerClasse(indice)">X</a>
+          <button [disabled]="cardRemoveBoolean" href="#" class="removeBtn" (click)="removerClasse(indice)">X</button>
         </div>
         <h4 *ngFor="let tarefa of tarefasGeral; index as indice">
           <div 
           *ngIf="div == tarefa.classeTarefa"
           class="teste"
-          draggable="true"
+          draggable="tarefa.draggable"
           (dragstart)="dragstart(tarefa)"
           (drop)="getIndex($event, indice)" 
           >  
             <p class="nomeTarefa" (click)="Click(tarefa)">{{ tarefa.nomeTarefa }}</p>
+            <button [disabled]="cardEditBoolean">editar</button>
             <p *ngIf="tarefa.click">seleção</p>
             <select
               (change)="mudarCategoria()"
@@ -69,7 +72,7 @@
                <p *ngIf="tarefa.propriedade != null">{{tarefa.propriedade}}</p>
                <button (click)="cadastroValorPropriedade(propriedadeTexto, indice, tarefa)" *ngIf="tarefa.click">cadastro</button>
             </div>
-            <button class="botaoRemoverTarefa" (click)="removerTarefa(indice)">Remover</button>
+            <button class="botaoRemoverTarefa" (click)="removerTarefa(indice)" [disabled]="cardRemoveBoolean">Remover</button>
           </div>
         </h4>
       </div>

@@ -53,17 +53,47 @@ export class PropriedadeComponent implements OnInit {
     this.users = this.UserRepository.getUsers();
     this.user = this.getUsuarioLogado();
 
-    this.disabled();
+    this.disabledAddPropertie();
+    this.disabledRemovePropertie();
+    this.disabledEditPropertie();
+    this.disabledMovePropertie();
+  
 
     console.log(this.user)
   }
 
-  disabled() : void {
+  disabledAddPropertie() : void {
     console.log('entrou')
     this.user.propertiesPermissions.forEach(permission => {
       if(permission == 'Add') {
-        console.log('entrou')
         this.propertieAddBoolean = false;
+      }
+    });
+  }
+
+  disabledRemovePropertie() : void {
+    console.log('entrou')
+    this.user.propertiesPermissions.forEach(permission => {
+      if(permission == 'Remove') {
+        this.propertieRemoveBoolean = false;
+      }
+    });
+  }
+
+  disabledEditPropertie() : void {
+    this.user.propertiesPermissions.forEach(permission => {
+      if(permission == 'Edit') {
+        console.log('permissao de editar')
+        this.propertieEditBoolean = false;
+      }
+    });
+  }
+
+  disabledMovePropertie() : void {
+    console.log('entrou')
+    this.user.propertiesPermissions.forEach(permission => {
+      if(permission == 'Move') {
+        this.propertieMoveBoolean = false;
       }
     });
   }
