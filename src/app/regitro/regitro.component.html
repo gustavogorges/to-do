@@ -1,6 +1,13 @@
 <app-nav></app-nav>
 <div class="mainDiv">
   <div class="mainHeader">
+    <div class="tipoVisualizacao">
+      <p class="visualizacaoTitle">Tipo de visualização</p>
+      <select class="selectVisualizacao">
+        <option value="">Seleção</option>
+        <option value="">Padrão</option>
+      </select>
+    </div>
     <div class="titleDiv">
       <p class="cadastroTarefaTitle">Cadastre a sua Tarefa Aqui!</p>
     </div>
@@ -21,10 +28,10 @@
        (click)="cadastrarTarefa()"
         >Cadastro</button>
     </div>
-    <app-modal
+    <!-- <app-modal
       *ngIf="mostraModal"
       (clicouCadastrarTipo)="novoTipoTarefa($event)"
-    ></app-modal>
+    ></app-modal> -->
   </div>
 
   <section class="Content">

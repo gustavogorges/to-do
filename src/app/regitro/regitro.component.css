@@ -106,7 +106,7 @@
   padding-bottom: 3px;
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 28px;
   border-bottom: 4px solid #294936;
 }
 
@@ -135,4 +135,21 @@
 
 .botaoRemoverTarefa {
   margin-top: 20px;
+}
+
+.tipoVisualizacao {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.visualizacaoTitle {
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.selectVisualizacao {
+  height: 25px;
+  width: 80px;
 }
