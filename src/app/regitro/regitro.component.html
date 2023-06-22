@@ -16,7 +16,10 @@
         <option *ngFor="let item of categoriasGeral">{{ item }}</option>
       </select>
 
-      <button class="btnCadastrar" (click)="cadastrarTarefa()">Cadastro</button>
+      <button
+       class="btnCadastrar"
+       (click)="cadastrarTarefa()"
+        >Cadastro</button>
     </div>
     <app-modal
       *ngIf="mostraModal"

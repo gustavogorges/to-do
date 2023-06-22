@@ -19,7 +19,7 @@ export class AppComponent {
   ) {
     this.users = this.UserRepository.getUsers();
     this.user = this.getUsuarioLogado();
-    console.log(this.user)
+
   }
 
   private getUsuarioLogado(): User | undefined {

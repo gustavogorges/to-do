@@ -3,10 +3,20 @@
   <div class="modalNovaTarefa">
     <h1 class="modalTitle">Nova Categoria</h1>
     <div class="inputs">
-      <input class="inputNovaTarefa" [(ngModel)]="tarefaTipo" type="text" />
-      <input class="inputColor" type="color" [(ngModel)]="tarefaCor">
+      <input
+       class="inputNovaTarefa"
+        [(ngModel)]="tarefaTipo"
+        type="text"
+        [disabled]="cardAddBoolean" />
+      <input class="inputColor"
+       type="color"
+        [(ngModel)]="tarefaCor"
+        [disabled]="cardAddBoolean"
+        >
     </div>
-    <a class="botaoFecharModal" (click)="cadastrarTipo()">Cadastrar</a>
+    <button class="botaoFecharModal"
+     (click)="cadastrarTipo()"
+     [disabled]="cardAddBoolean">Cadastrar</button>
   </div>
 </div>
 

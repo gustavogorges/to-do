@@ -1,5 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { AppComponent } from "../app.component";
+import { User } from 'src/models/users/user';
+import { UserRepository } from 'src/repositories/user.repository'
+
 
 @Component({
   selector: "app-modal",
@@ -12,7 +15,15 @@ export class ModalComponent implements OnInit {
   tarefaTipo: string;
   tarefaCor: string;
 
-  constructor() {}
+  private userId : string = ""
+  private users: User[] = [];
+  public user : User | undefined;
+
+  constructor(
+    private UserRepository: UserRepository
+    ) {} 
+  
+
 
   @Output() clicouFecharModal = new EventEmitter();
 
@@ -30,6 +41,19 @@ export class ModalComponent implements OnInit {
         localStorage.getItem("CategoriasGeral")
       );
     }
+
+    this.userId = localStorage.getItem('UsuarioLogado');
+
+    this.users = this.UserRepository.getUsers();
+    this.user = this.getUsuarioLogado();
+
+    console.log(this.user)
+  }
+
+  private getUsuarioLogado(): User | undefined {
+    return this.users.find((user) => {
+      return user.id === this.userId;
+    });
   }
 
   removerClasse(indice: number): void {

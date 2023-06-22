@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { callLifecycleHooksChildrenFirst } from "@angular/core/src/view/provider";
+import { User } from 'src/models/users/user';
+import { UserRepository } from 'src/repositories/user.repository'
 
 interface Tarefa {
   nomeTarefa: string;
@@ -23,6 +25,16 @@ interface Propriedade {
 })
 export class RegitroComponent implements OnInit {
 
+  private userId : string = ""
+  private users: User[] = [];
+  public user : User | undefined;
+
+  constructor(
+    private UserRepository: UserRepository
+    ) {
+      
+  }
+
   tarefasGeral: Tarefa[] = [];
   categoriasGeral: string[] = [];
   coresGeral: string[] = [];
@@ -39,6 +51,11 @@ export class RegitroComponent implements OnInit {
   displayTarefa: string = "";
   tipoTarefa: string;
 
+  cardAddBoolean : boolean = true;
+  cardEditBoolean : boolean = true;
+  cardMoveBoolean : boolean = true;
+  cardRemoveBoolean : boolean = true;
+
   mostraModal: boolean = false;
   static mostraModal: boolean;
 
@@ -52,6 +69,13 @@ export class RegitroComponent implements OnInit {
       this.tarefasGeral = JSON.parse(localStorage.getItem("TarefasGeral"));
     }
 
+    this.userId = localStorage.getItem('UsuarioLogado');
+
+    this.users = this.UserRepository.getUsers();
+    this.user = this.getUsuarioLogado();
+    console.log(this.user)
+
+    this.disabled();
   
   }
 
@@ -62,6 +86,21 @@ export class RegitroComponent implements OnInit {
     click: false,
     propriedade : null
   };
+
+  private getUsuarioLogado(): User | undefined {
+    return this.users.find((user) => {
+      return user.id === this.userId;
+    });
+  }
+
+  disabled() : void {
+    console.log('entrou')
+    this.user.cardPermissions.forEach(permission => {
+      if(permission == 'Add') {
+        this.cardAddBoolean = false;
+      }
+    });
+  }
 
   removerClasse(indice: number): void {
     this.categoriasGeral.splice(indice, 1);

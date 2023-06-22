@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { User } from 'src/models/users/user';
+import { UserRepository } from 'src/repositories/user.repository'
 
 interface Propriedade {
   nomePropriedade: string;
@@ -14,11 +16,24 @@ interface Propriedade {
 })
 export class PropriedadeComponent implements OnInit {
 
+  private userId : string = ""
+  private users: User[] = [];
+  public user : User | undefined;
+
+  constructor(
+    private UserRepository: UserRepository
+    ) {} 
+  
+
   propriedadesGeral: Propriedade[] = [];
   categoriasGeral : String[] = [];
   tipoDado: string;
 
-  constructor() {}
+  propertieAddBoolean : boolean = true;
+  propertieEditBoolean : boolean = true;
+  propertieMoveBoolean : boolean = true;
+  propertieRemoveBoolean : boolean = true;
+
 
   @Output() clicouFecharModal = new EventEmitter();
 
@@ -32,6 +47,25 @@ export class PropriedadeComponent implements OnInit {
         localStorage.getItem("PropriedadesGeral")
       );
     }
+
+    this.userId = localStorage.getItem('UsuarioLogado');
+
+    this.users = this.UserRepository.getUsers();
+    this.user = this.getUsuarioLogado();
+
+    this.disabled();
+
+    console.log(this.user)
+  }
+
+  disabled() : void {
+    console.log('entrou')
+    this.user.propertiesPermissions.forEach(permission => {
+      if(permission == 'Add') {
+        console.log('entrou')
+        this.propertieAddBoolean = false;
+      }
+    });
   }
 
   removerClasse(indice: number): void {
@@ -53,6 +87,12 @@ export class PropriedadeComponent implements OnInit {
     indicePropriedade: 0,
     valorPropriedade: ""
   };
+
+  private getUsuarioLogado(): User | undefined {
+    return this.users.find((user) => {
+      return user.id === this.userId;
+    });
+  }
 
   cadastrarTipo(): void {
     

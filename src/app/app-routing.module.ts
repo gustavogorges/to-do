@@ -17,6 +17,10 @@ const rotas: Route[] = [
     component: ModalComponent,
   },
   {
+    path: "telaLogin",
+    component: TelaLoginComponent,
+  },
+  {
     path: "",
     component: TelaLoginComponent,
   },

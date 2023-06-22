@@ -10,7 +10,8 @@ export const users: User[] = [
 		],
 		"propertiesPermissions": [
 			"Add"
-		]
+		], 
+		"senha": "123"
 	},
 	{
 		"id": "henrique.santos",
@@ -21,7 +22,8 @@ export const users: User[] = [
 		],
 		"propertiesPermissions": [
 			"Edit"
-		]
+		], 
+		"senha": "123"
 	},
 	{
 		"id": "igor.oliveira",
@@ -32,7 +34,8 @@ export const users: User[] = [
 		],
 		"propertiesPermissions": [
 			"Remove"
-		]
+		], 
+		"senha": "123"
 	},
 	{
 		"id": "igor.guimaraes",
@@ -44,7 +47,8 @@ export const users: User[] = [
 		"propertiesPermissions": [
 			"Add",
 			"Edit"
-		]
+		], 
+		"senha": "123"
 	},
 	{
 		"id": "diogo.defante",
@@ -60,7 +64,8 @@ export const users: User[] = [
 			"Add",
 			"Edit",
 			"Remove"
-		]
+		], 
+		"senha": "123"
 	}
 	
 ]

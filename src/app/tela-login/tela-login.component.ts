@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/models/users/user';
 import { UserRepository } from 'src/repositories/user.repository'
 
@@ -11,17 +12,20 @@ import { UserRepository } from 'src/repositories/user.repository'
 })
 export class TelaLoginComponent implements OnInit {
 
-  private userId : string = "joao.silva"
+  private userId : string = ""
   private users: User[] = [];
   public user : User | undefined;
 
   constructor(
-    private UserRepository: UserRepository
+    private UserRepository: UserRepository,
+    private router: Router
   ) { 
     this.users = this.UserRepository.getUsers();
     this.user = this.getUsuarioLogado();
-    console.log(this.user)
   }
+
+  usuario : string;
+  senha : string;
 
   private getUsuarioLogado(): User | undefined {
     return this.users.find((user) => {
@@ -30,7 +34,17 @@ export class TelaLoginComponent implements OnInit {
   }
 
   verificaLogin():void {
-    console.log('test')
+    this.users.forEach(userFor => {
+      if(this.usuario == userFor.id) {
+        if(this.senha == userFor.senha){
+          localStorage.setItem('UsuarioLogado', userFor.id)
+          this.router.navigate(['/registroTarefa'])
+        }
+      }
+    })
+    if(localStorage.getItem('UsuarioLogado') == null){
+      alert('usuario não existe ou senha incorreta');
+    }
   }
 
   ngOnInit() {
