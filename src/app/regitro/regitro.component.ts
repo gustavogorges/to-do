@@ -5,6 +5,9 @@ import { UserRepository } from 'src/repositories/user.repository'
 
 interface Tarefa {
   nomeTarefa : string;
+  propriedade : string[] ;
+  click : boolean;
+  draggable : boolean ;
 }
 
 @Component({
@@ -24,21 +27,42 @@ export class RegitroComponent implements OnInit {
       
   }
 
-  cadastroTarefa : boolean = false;
+  cadastroTarefaBoolean : boolean = false;
+  tarefasGeral : Tarefa[] = [];
 
-  
+
+  tarefa: Tarefa = {
+    nomeTarefa: "",
+    click: false,
+    propriedade : [],
+    draggable : false
+  };
 
   ngOnInit() {
    
   }
 
-  cadastrarTarefa() : void {
+  cadastrarTarefaButton() : void {
     console.log(this.cadastroTarefa)
-    if(this.cadastroTarefa == false) {
-      this.cadastroTarefa = true;
+    if(this.cadastroTarefaBoolean == false) {
+      this.cadastroTarefaBoolean = true;
       console.log('true')
     } else {
-      this.cadastroTarefa = false;
+      this.cadastroTarefaBoolean = false;
     }
+  }
+
+  cadastroTarefa() : void {
+    this.cadastroTarefaBoolean = false;
+
+    const tarefaItem : Tarefa = {
+      nomeTarefa : this.tarefa.nomeTarefa,
+      propriedade : this.tarefa.propriedade,
+      click : this.tarefa.click,
+      draggable : this.tarefa.draggable
+    }
+
+    console.log(this.tarefasGeral)
+    this.tarefasGeral.push(tarefaItem);
   }
 }

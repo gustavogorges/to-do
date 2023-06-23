@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 <main>
       <div class="header">
-        <button class="btnCadastroTarefa" (click)="cadastrarTarefa()">cadastrar tarefa</button>
+        <button class="btnCadastroTarefa" (click)="cadastrarTarefaButton()">cadastrar tarefa</button>
           <h1 class="titlePage">Tarefas</h1>
           <select>
             <option value="">Padrão</option>
@@ -9,9 +9,14 @@
           </select>
       </div>
 
-      <div class="cadastroBox" *ngIf="cadastroTarefa">
+      <div class="cadastroBox" *ngIf="cadastroTarefaBoolean">
         <h1 class="titleCadastro">Cadastre a sua tarefas aqui!</h1>
-        <input class="inputCadastro" type="text" placeholder="Digite o nome da tarefa" [(ngModel)]="nomeTarefa">
-       <button class="btnCadastrar" (click)="cadastrarTarefa()">Cadastrar</button>
+        <input class="inputCadastro" type="text" placeholder="Digite o nome da tarefa" [(ngModel)]="tarefa.nomeTarefa">
+       <button class="btnCadastrar" (click)="cadastroTarefa()">Cadastrar</button>
+    </div>
+
+    <div class="tarefasBox">
+       
+            
     </div>
 </main>
