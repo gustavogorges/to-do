@@ -3,9 +3,10 @@
       <div class="header">
         <button class="btnCadastroTarefa" (click)="cadastrarTarefaButton()">cadastrar tarefa</button>
           <h1 class="titlePage">Tarefas</h1>
-          <select>
+          <select>  
             <option value="">Padrão</option>
             <option value="">Categorias</option>
+            <option value="">Calendário</option>
           </select>
       </div>
 
@@ -16,7 +17,10 @@
     </div>
 
     <div class="tarefasBox">
-       
-            
+        <div class="tarefas" *ngFor="let tarefa of tarefasGeral">
+          <div class="tarefa">
+            <h1>{{tarefa.nomeTarefa}}</h1>
+          </div>
+        </div>
     </div>
 </main>

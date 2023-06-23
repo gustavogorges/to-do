@@ -1,84 +1,37 @@
-.modalNovaTarefa {
-    height: 260px;
-    width: 100vh;
-    background-color: rgb(197, 196, 196);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .flexTarefa {
-    margin-top: 30px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .inputs{
-    display: flex;
-  }
-  
-  .botaoFecharModal {
-    padding: 10px 15px;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .inputNovaPropriedade {
-    padding: 5px;
-    margin-bottom: 30px;
-  }
-  
-  .listaCategorias {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-  
-  }
-  
-  .lista {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 150px);
-    column-gap: 50px;
-    row-gap: 30px;
-  }
-  
-  .lista {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .lista li {
-    font-size: 25px;
-    margin-bottom: 15px;
-  }
-  
-  .btnRemove {
-    float:right;
-    text-decoration: none;
-    font-weight: bold;
-    color: #000;
-    font-family: sans-serif;
-  }
-  
-  .itemCategoria {
-    padding: 10px;
-    border-radius: 5px;
-  }
+.mainDiv {
+  width: 100%;
+  height: 82vh;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
 
-  .selectTipoDados {
-    height: 30px;
-  }
+.inputCadastro {
+  width: 23%;
+  height: 90%;
+}
 
-  .selectSelecao {
-    height: 30px;
-  }
-  
+.divInputs {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  height: 110%;
+}
+
+.btnCadastrar {
+  margin-top: 20px;
+  height: 6%;
+  width: 10%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+}

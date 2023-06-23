@@ -17,8 +17,6 @@ main {
     flex-direction: column;
     margin-top: 20px;
     border-radius: 4px;
-    grid-column-start: 2;
-    grid-column-end: 3;
 }
 
 .titleCadastro {
@@ -59,7 +57,25 @@ main {
     cursor: pointer;
 }
 
+.tarefasBox {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+}
 
+.tarefas {
+    
+}
+
+.tarefa {
+    display: flex;
+    justify-content: center;
+    background-color: #d4d4d4;
+    height: 170px;
+    border-radius: 10px;
+}
 
 .titlePage {
     margin-right: 20px;
