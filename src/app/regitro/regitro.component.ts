@@ -33,6 +33,13 @@ export class RegitroComponent implements OnInit {
   constructor(
     private UserRepository: UserRepository
     ) {
+      UserRepository.getUsers().subscribe({
+        next: (value) => {
+          this.users = value;
+         // this.getUsuarioLogado()
+        }
+      })
+
       
   }
 
@@ -77,9 +84,7 @@ export class RegitroComponent implements OnInit {
 
     this.userId = localStorage.getItem('UsuarioLogado');
 
-    this.users = this.UserRepository.getUsers();
-    this.user = this.getUsuarioLogado();
-    console.log(this.user)
+  
 
     this.disabledAddCard();
     this.disabledRemoveCard();

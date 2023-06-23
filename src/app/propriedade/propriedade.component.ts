@@ -22,7 +22,13 @@ export class PropriedadeComponent implements OnInit {
 
   constructor(
     private UserRepository: UserRepository
-    ) {} 
+    ) {
+      UserRepository.getUsers().subscribe({
+        next: (value) => {
+          this.users = value;
+        }
+      })
+    } 
   
 
   propriedadesGeral: Propriedade[] = [];
@@ -50,8 +56,7 @@ export class PropriedadeComponent implements OnInit {
 
     this.userId = localStorage.getItem('UsuarioLogado');
 
-    this.users = this.UserRepository.getUsers();
-    this.user = this.getUsuarioLogado();
+    
 
     this.disabledAddPropertie();
     this.disabledRemovePropertie();

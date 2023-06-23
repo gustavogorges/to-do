@@ -44,8 +44,7 @@ export class ModalComponent implements OnInit {
 
     this.userId = localStorage.getItem('UsuarioLogado');
 
-    this.users = this.UserRepository.getUsers();
-    this.user = this.getUsuarioLogado();
+
 
     console.log(this.user)
   }

@@ -20,8 +20,11 @@ export class TelaLoginComponent implements OnInit {
     private UserRepository: UserRepository,
     private router: Router
   ) { 
-    this.users = this.UserRepository.getUsers();
-    this.user = this.getUsuarioLogado();
+    UserRepository.getUsers().subscribe({
+      next: (value) => {
+        this.users = value;
+      }
+    })
   }
 
   usuario : string;
