@@ -2,7 +2,7 @@ nav {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: #294936;
+    background-color: #d4d4d4;
     align-items: center;
     height: 70px;
     gap: 20%;
@@ -14,5 +14,5 @@ nav a{
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    color: #fff;
+    color: #000;
 }

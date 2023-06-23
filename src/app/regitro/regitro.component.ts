@@ -3,6 +3,10 @@ import { callLifecycleHooksChildrenFirst } from "@angular/core/src/view/provider
 import { User } from 'src/models/users/user';
 import { UserRepository } from 'src/repositories/user.repository'
 
+interface Tarefa {
+  nomeTarefa : string;
+}
+
 @Component({
   selector: "app-regitro",
   templateUrl: "./regitro.component.html",
@@ -20,9 +24,21 @@ export class RegitroComponent implements OnInit {
       
   }
 
+  cadastroTarefa : boolean = false;
+
   
 
   ngOnInit() {
-    
+   
+  }
+
+  cadastrarTarefa() : void {
+    console.log(this.cadastroTarefa)
+    if(this.cadastroTarefa == false) {
+      this.cadastroTarefa = true;
+      console.log('true')
+    } else {
+      this.cadastroTarefa = false;
+    }
   }
 }
