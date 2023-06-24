@@ -18,7 +18,7 @@ const rotas: Route[] = [
   },
   {
     path: "telaLogin",
-    component: TelaLoginComponent,
+    component: RegitroComponent,
   },
   {
     path: "",
