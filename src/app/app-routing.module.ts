@@ -22,7 +22,7 @@ const rotas: Route[] = [
   },
   {
     path: "",
-    component: TelaLoginComponent,
+    component: RegitroComponent,
   },
   {
     path: "propriedades",
