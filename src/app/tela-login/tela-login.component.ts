@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/models/users/user';
 import { UserRepository } from 'src/repositories/user.repository'
+import { AuthService } from 'src/service/auth.service';
 
 
 
@@ -17,38 +18,35 @@ export class TelaLoginComponent implements OnInit {
   public user : User | undefined;
 
   constructor(
-    private UserRepository: UserRepository,
+    private authService: AuthService,
     private router: Router
   ) { 
-    this.users = this.UserRepository.getUsers();
-    this.user = this.getUsuarioLogado();
+   
   }
 
-  usuario : string;
-  senha : string;
+  username : string;
+  password : string;
 
-  private getUsuarioLogado(): User | undefined {
-    return this.users.find((user) => {
-      return user.id === this.userId;
-    });
-  }
-
-  verificaLogin():void {
-    this.users.forEach(userFor => {
-      if(this.usuario == userFor.id) {
-        if(this.senha == userFor.senha){
-          localStorage.setItem('UsuarioLogado', userFor.id)
-          this.router.navigate(['/registroTarefa'])
-        }
+  
+  login(): void {
+    this.authService.login(this.username, this.password).subscribe(
+      () => {
+        // Once the login is successful, retrieve permissions and perform further actions
+        this.authService.getPermissions().subscribe(
+          permissions => {
+            // Handle permissions, e.g., store them in a variable or update component state
+            console.log('User Permissions:', permissions);
+          }
+        );
+        this.router.navigate(['/registroTarefa'])
+      },
+      error => {
+        console.error('Login failed:', error);
       }
-    })
-    if(localStorage.getItem('UsuarioLogado') == null){
-      alert('usuario não existe ou senha incorreta');
-    }
+    );
   }
 
   ngOnInit() {
-    
   }
 
 }
