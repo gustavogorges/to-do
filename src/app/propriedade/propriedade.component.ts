@@ -22,6 +22,14 @@ export class PropriedadeComponent implements OnInit {
     
   }
 
+  nomePropriedade : string;
+  tipoPropriedade : string;
+
+  cadastraPropriedade() : void {
+    console.log(this.nomePropriedade);
+    console.log(this.tipoPropriedade)
+  }
+
   
 
 }

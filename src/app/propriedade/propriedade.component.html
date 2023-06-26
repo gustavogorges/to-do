@@ -2,13 +2,13 @@
 <div class="mainDiv">
     <h1>Cadastrar propriedade</h1>
     <div class="divInputs">
-        <input type="text" class="inputCadastro" placeholder="Digite o nome da propriedade aqui">
-        <select class="select" name="" id="">
+        <input type="text" class="inputCadastro" placeholder="Digite o nome da propriedade aqui" [(ngModel)]="nomePropriedade">
+        <select class="select" name="" id="" [(ngModel)]="tipoPropriedade">
             <option value="">Texto</option>
             <option value="">Número</option>
-            <option value="">Seleção</option>]
-            <option value="">Calendário</option>]
+            <option value="">Seleção</option>
+            <option value="">Calendário</option>
         </select>
     </div>
-    <button class="btnCadastrar">Cadastrar</button>
+    <button class="btnCadastrar" (click)="cadastraPropriedade()">Cadastrar</button>
 </div>
