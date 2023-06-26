@@ -34,9 +34,7 @@ export class AuthService {
   login(username: string, password: string): Observable<boolean> {
     // Simulate an asynchronous login request
     return new Observable<boolean>(observer => {
-      console.log("User: ", username)
-      console.log("Senha: ", password)
-      console.log("Users: ", this.users)
+      
       // Perform authentication logic here
       // Example: Check username and password against a backend API
       this.user = verificaUsuario(username, password);

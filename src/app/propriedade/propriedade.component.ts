@@ -25,7 +25,7 @@ export class PropriedadeComponent implements OnInit {
   
 
   ngOnInit() {
-    if(this.listaPropriedades == null) {
+    if(localStorage.getItem('ListaPropriedades') != null) {
       this.listaPropriedades = JSON.parse(localStorage.getItem('ListaPropriedades'))
     }
   }

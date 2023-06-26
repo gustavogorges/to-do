@@ -39,7 +39,10 @@ export class RegitroComponent implements OnInit {
   };
 
   ngOnInit() {
-   
+
+    if(localStorage.getItem('ListaTarefas') != null) {
+      this.tarefasGeral = JSON.parse(localStorage.getItem('ListaTarefas'));
+    }
   }
 
   cadastrarTarefaButton() : void {
@@ -64,5 +67,6 @@ export class RegitroComponent implements OnInit {
 
     console.log(this.tarefasGeral)
     this.tarefasGeral.push(tarefaItem);
+    localStorage.setItem('ListaTarefas', JSON.stringify(this.tarefasGeral));
   }
 }

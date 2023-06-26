@@ -75,6 +75,8 @@ main {
 
 .tarefa {
     display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
     background-color: #d4d4d4;
     height: 170px;

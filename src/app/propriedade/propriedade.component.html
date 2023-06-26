@@ -20,7 +20,14 @@
     <div class="mainListaPropriedades">
         
         <div class="itemLista" *ngFor="let propriedade of listaPropriedades">
-            <h1 class="nomePropriedade">{{propriedade.nomePropriedade}}</h1>
+            <h1 class="nomePropriedade">Nome: {{propriedade.nomePropriedade}}</h1>
+            <div class="mainBox">
+                <h1 class="valorPropriedade">Tipo: {{propriedade.tipoPropriedade}}</h1>
+            </div>
+            <div class="btns">
+                <button class="btn btn-editar">Editar</button>
+                <button class="btn btn-remover">Remover</button>
+            </div>
         </div>
     </div>
 </div>
