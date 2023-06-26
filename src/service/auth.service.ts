@@ -34,10 +34,13 @@ export class AuthService {
   login(username: string, password: string): Observable<boolean> {
     // Simulate an asynchronous login request
     return new Observable<boolean>(observer => {
+      console.log("User: ", username)
+      console.log("Senha: ", password)
+      console.log("Users: ", this.users)
       // Perform authentication logic here
       // Example: Check username and password against a backend API
       this.user = verificaUsuario(username, password);
-
+      console.log(this.user)
       if(this.user != null) {
         // Simulate a successful login
          this.isAuthenticated = true;
@@ -57,9 +60,14 @@ export class AuthService {
     this.userPropertiesPermissions = [];
   }
 
-  getPermissions(): Observable<string[]> {
+  getCardPermissions(): Observable<string[]> {
     // Simulate an asynchronous operation to retrieve permissions
-    return of(this.userCardPermissions, this.userPropertiesPermissions);
+    return of(this.userCardPermissions);
+  }
+
+  getPropertiesPermissons(): Observable<string[]> {
+    // Simulate an asynchronous operation to retrieve permissions
+    return of(this.userPropertiesPermissions);
   }
 
   isAuthenticatedUser(): boolean {
@@ -68,13 +76,29 @@ export class AuthService {
 }
 
 function verificaUsuario(username:string, password:string):User {
-  users.forEach(user => {
-    if(user.name == username) {
-      if(user.senha == password) {
-        return(user);
+  let usertest: User = {
+    id : null,
+    name: null,
+    groups : null,
+    cardPermissions : null,
+    propertiesPermissions : null,
+    senha : null
+  };
+  users.forEach(userReturned => {
+    if(userReturned.id == username) {
+      console.log("User ID: ", userReturned.id)
+      console.log("Username: ", username)
+      if(userReturned.senha == password) {
+        console.log("senha: ", userReturned.senha)
+        console.log(password);
+
+        if(userReturned!= null) {
+          usertest = userReturned
+        }
       }
     }
   });
-  return null;
+  console.log(usertest)
+  return usertest;
 }
 

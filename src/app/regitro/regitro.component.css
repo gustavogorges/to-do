@@ -69,6 +69,10 @@ main {
     
 }
 
+.tarefaNome {
+    font-size: 20px;
+}
+
 .tarefa {
     display: flex;
     justify-content: center;
