@@ -24,7 +24,10 @@
             <div class="propriedades" *ngIf="tarefa.clickPropriedades">
               <div class="propriedade" *ngFor="let propriedade of tarefa.listaPropriedades; index as indice">
                 <div class="propriedadeValores">
-                  <h1 class="nomePropriedade">{{propriedade.nomePropriedade}}:{{propriedade.valorPropriedade}}</h1>
+                  <h1 class="nomePropriedade">
+                    {{propriedade.nomePropriedade}} : {{propriedade.valorPropriedade}}
+                  </h1>
+                  <button class="btnApagar">X</button>
                 </div>
               </div>
             </div>
@@ -41,8 +44,8 @@
               <div class="propriedadesModal" *ngFor="let propriedade of propriedadesGeral; index as indice2">
                 <div class="divItens" style="display: flex; width: 90%; justify-content: space-between;">
                   <h1 class="propriedadesItens">{{propriedade.nomePropriedade}}</h1>
-                  <input [(ngModel)]="propriedadeValor" class="inputValorPropriedade" type="text" placeholder="Digite o valor : ">
-                  <button class="propriedadeBtn" (click)="adicionarPropriedade(tarefa, propriedade, indice, indice2)">adicionar</button>
+                  <input [(ngModel)]="propValor" class="inputValorPropriedade" type="text" placeholder="Digite o valor ">
+                  <button class="propriedadeBtn" (click)="adicionarPropriedade(tarefa, indice2, propriedade)">adicionar</button>
                 </div>
               </div>
           </div>

@@ -39,7 +39,7 @@ export class RegitroComponent implements OnInit {
   cadastroTarefaBoolean : boolean = false;
   tarefasGeral : Tarefa[] = [];
   propriedadesGeral : Propriedade[] = [];
-  propriedadeValor : string;
+ // propriedadeValor : string;
 
 
   tarefa: Tarefa = {
@@ -51,6 +51,14 @@ export class RegitroComponent implements OnInit {
     modalEditar : false,
     listaPropriedades : []
   };
+
+  propriedade: Propriedade = {
+    nomePropriedade: "",
+    valorPropriedade: "",
+    tipoPropriedade: ""
+  }
+
+  propValor : string;
 
   ngOnInit() {
 
@@ -74,7 +82,7 @@ export class RegitroComponent implements OnInit {
   }
 
   clickEdit(tarefa : Tarefa) : void {
-    console.log(tarefa)
+    
     if(tarefa.modalEditar == false){
       tarefa.modalEditar = true;
     } else if(tarefa.modalEditar == true) {
@@ -94,12 +102,20 @@ export class RegitroComponent implements OnInit {
     }
   }
 
-  adicionarPropriedade(tarefa : Tarefa, propriedade : Propriedade, indice : number, indice2 : number) : void {
-    tarefa.listaPropriedades.push(propriedade);
-    tarefa.listaPropriedades[indice2].valorPropriedade = this.propriedadeValor;
+  adicionarPropriedade(tarefa : Tarefa, indice : number, propriedade : Propriedade) : void {
     tarefa.modalEditar = false;
-    this.propriedadeValor = '';
+
+    const novaPropriedade : Propriedade = {
+      nomePropriedade : propriedade.nomePropriedade,
+      valorPropriedade : this.propValor,
+      tipoPropriedade : propriedade.tipoPropriedade
+    }
+
+    tarefa.listaPropriedades.push(novaPropriedade)
+
     localStorage.setItem('ListaTarefas', JSON.stringify(this.tarefasGeral))
+    
+    this.propValor = '';
   }
 
   cadastroTarefa() : void {

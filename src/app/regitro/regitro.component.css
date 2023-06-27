@@ -19,6 +19,13 @@ main {
     border-radius: 4px;
 }
 
+.btnApagar {
+  border: none;
+  margin-left: 30%;
+  background-color: none;
+  height: 5%;
+}
+
 .titleCadastro {
     font-size: 25px;
 }
@@ -78,7 +85,9 @@ main {
 
 .propriedadeValores {
   display: flex;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 93%;
 }
 
 .modalEdit {
