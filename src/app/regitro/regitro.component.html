@@ -18,16 +18,34 @@
 
     <div class="tarefasBox">
         <div class="tarefas" *ngFor="let tarefa of tarefasGeral">
+          
           <div class="tarefa">
-            <h1 class="tarefaNome">{{tarefa.nomeTarefa}}</h1>
-            <div class="propriedades">
-              
+            <h1 class="tarefaNome" (click)="clickProp(tarefa)">{{tarefa.nomeTarefa}}</h1>
+            <div class="propriedades" *ngIf="tarefa.clickPropriedades">
+              <div class="propriedade" *ngFor="let propriedade of tarefa.listaPropriedades">
+                <div class="propriedadeValores">
+                  <h1 class="nomePropriedade">{{propriedade.nomePropriedade}}:{{propriedade.valorPropriedade}}</h1>
+                </div>
+              </div>
             </div>
             <div class="btns">
-              <button class="btn btn-editar">Editar</button>
+              <button class="btn btn-editar" (click)="clickEdit(tarefa)">Editar</button>
               <button class="btn btn-remover">Remover</button>
         </div>
           </div>
+          <div class="modalEdit" *ngIf="tarefa.modalEditar" (click)="clickEdit(tarefa)">
+            <div class="headerModalEdit">
+              <h1 class="btnCloseModal">X</h1>
+            </div>
+              <h1 class="titleModal">{{tarefa.nomeTarefa}}</h1>
+              <div class="propriedadesModal" *ngFor="let propriedade of propriedadesGeral">
+                <div style="display: flex; width: 90%; justify-content: space-between;">
+                  <h1 class="propriedadesItens">{{propriedade.nomePropriedade}}</h1>
+                  <button class="propriedadeBtn" (click)="adicionarPropriedade(tarefa, propriedade)">adicionar</button>
+                </div>
+              </div>
+          </div>
         </div>
     </div>
+    
 </main>

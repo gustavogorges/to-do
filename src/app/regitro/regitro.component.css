@@ -69,8 +69,78 @@ main {
     
 }
 
+.propriedades {
+  margin-left: 7%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.propriedadeValores {
+  display: flex;
+  width: 100%;
+}
+
+.modalEdit {
+  position: absolute;
+  width: 40%;
+  min-height: 60%;
+  border: 2px solid #d4d4d4;
+  background-color: #fff;
+  left: 30%;
+  top: 20%;
+  
+}
+
+.titleModal {
+  margin-left: 10%;
+}
+
+.propriedadesItens {
+  font-size: 18px;
+}
+
+.propriedadesModal {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.propriedadeBtn {
+  border-radius: 5px; 
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.headerModalEdit {
+  display: flex;
+  justify-content:end;
+
+  width: 90%;
+  position: absolute;
+}
+
+.btnCloseModal {
+  color: red;
+  cursor: pointer;
+}
+
+.btns {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.inputValorPropriedade {
+  width: 30%;
+  height: 10%;
+}
+
 .tarefaNome {
     font-size: 20px;
+    cursor: pointer;
 }
 
 .tarefa {
@@ -79,10 +149,14 @@ main {
     flex-direction: column;
     justify-content: center;
     background-color: #d4d4d4;
-    height: 170px;
+    min-height: 25%;
 }
 
 .titlePage {
     margin-right: 20px;
+}
+
+.nomePropriedade {
+  font-size: 16px;
 }
 

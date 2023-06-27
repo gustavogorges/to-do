@@ -8,6 +8,15 @@ interface Tarefa {
   propriedade : string[] ;
   click : boolean;
   draggable : boolean ;
+  clickPropriedades : boolean ;
+  modalEditar : boolean;
+  listaPropriedades : Propriedade[]
+}
+
+interface Propriedade {
+  nomePropriedade : string,
+  tipoPropriedade : string,
+  valorPropriedade ?: string
 }
 
 @Component({
@@ -29,13 +38,17 @@ export class RegitroComponent implements OnInit {
 
   cadastroTarefaBoolean : boolean = false;
   tarefasGeral : Tarefa[] = [];
+  propriedadesGeral : Propriedade[] = [];
 
 
   tarefa: Tarefa = {
     nomeTarefa: "",
     click: false,
     propriedade : [],
-    draggable : false
+    draggable : false,
+    clickPropriedades : false,
+    modalEditar : false,
+    listaPropriedades : []
   };
 
   ngOnInit() {
@@ -43,7 +56,32 @@ export class RegitroComponent implements OnInit {
     if(localStorage.getItem('ListaTarefas') != null) {
       this.tarefasGeral = JSON.parse(localStorage.getItem('ListaTarefas'));
     }
+
+    if(localStorage.getItem('ListaPropriedades') != null) {
+      this.propriedadesGeral = JSON.parse(localStorage.getItem('ListaPropriedades'));
+    }
+
+    console.log(this.propriedadesGeral)
   }
+
+  clickProp(tarefa : Tarefa) : void {
+    console.log(tarefa.clickPropriedades)
+    if(tarefa.clickPropriedades == false){
+      tarefa.clickPropriedades = true;
+    } else {
+      tarefa.clickPropriedades = false;
+    }
+  }
+
+  clickEdit(tarefa : Tarefa) : void {
+    console.log(tarefa.modalEditar)
+    if(tarefa.modalEditar == false){
+      tarefa.modalEditar = true;
+    } else {
+      tarefa.modalEditar = false;
+    }
+  }
+
 
   cadastrarTarefaButton() : void {
     console.log(this.cadastroTarefa)
@@ -55,6 +93,10 @@ export class RegitroComponent implements OnInit {
     }
   }
 
+  adicionarPropriedade(tarefa : Tarefa, propriedade : Propriedade) : void {
+    tarefa.listaPropriedades.push(propriedade);
+  }
+
   cadastroTarefa() : void {
     this.cadastroTarefaBoolean = false;
 
@@ -62,7 +104,10 @@ export class RegitroComponent implements OnInit {
       nomeTarefa : this.tarefa.nomeTarefa,
       propriedade : this.tarefa.propriedade,
       click : this.tarefa.click,
-      draggable : this.tarefa.draggable
+      draggable : this.tarefa.draggable,
+      clickPropriedades : this.tarefa.clickPropriedades,
+      modalEditar : this.tarefa.modalEditar,
+      listaPropriedades : this.tarefa.listaPropriedades
     }
 
     console.log(this.tarefasGeral)
