@@ -33,15 +33,16 @@
               <button class="btn btn-remover">Remover</button>
         </div>
           </div>
-          <div class="modalEdit" *ngIf="tarefa.modalEditar" (click)="clickEdit(tarefa)">
+          <div class="modalEdit" *ngIf="tarefa.modalEditar">
             <div class="headerModalEdit">
               <h1 class="btnCloseModal" (click)="clickEdit(tarefa)">X</h1>
             </div>
               <h1 class="titleModal">{{tarefa.nomeTarefa}}</h1>
-              <div class="propriedadesModal" *ngFor="let propriedade of propriedadesGeral">
-                <div style="display: flex; width: 90%; justify-content: space-between;">
+              <div class="propriedadesModal" *ngFor="let propriedade of propriedadesGeral; index as indice2">
+                <div class="divItens" style="display: flex; width: 90%; justify-content: space-between;">
                   <h1 class="propriedadesItens">{{propriedade.nomePropriedade}}</h1>
-                  <button class="propriedadeBtn" (click)="adicionarPropriedade(tarefa, propriedade, indice)">adicionar</button>
+                  <input [(ngModel)]="propriedadeValor" class="inputValorPropriedade" type="text" placeholder="Digite o valor : ">
+                  <button class="propriedadeBtn" (click)="adicionarPropriedade(tarefa, propriedade, indice, indice2)">adicionar</button>
                 </div>
               </div>
           </div>

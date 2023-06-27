@@ -92,6 +92,14 @@ main {
   
 }
 
+.inputValorPropriedade {
+  width: 100%;
+}
+
+.divItens {
+  align-items: center;
+}
+
 .titleModal {
   margin-left: 10%;
 }

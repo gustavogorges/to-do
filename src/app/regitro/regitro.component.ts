@@ -39,6 +39,7 @@ export class RegitroComponent implements OnInit {
   cadastroTarefaBoolean : boolean = false;
   tarefasGeral : Tarefa[] = [];
   propriedadesGeral : Propriedade[] = [];
+  propriedadeValor : string;
 
 
   tarefa: Tarefa = {
@@ -93,9 +94,11 @@ export class RegitroComponent implements OnInit {
     }
   }
 
-  adicionarPropriedade(tarefa : Tarefa, propriedade : Propriedade, indice : number) : void {
+  adicionarPropriedade(tarefa : Tarefa, propriedade : Propriedade, indice : number, indice2 : number) : void {
     tarefa.listaPropriedades.push(propriedade);
+    tarefa.listaPropriedades[indice2].valorPropriedade = this.propriedadeValor;
     tarefa.modalEditar = false;
+    this.propriedadeValor = '';
     localStorage.setItem('ListaTarefas', JSON.stringify(this.tarefasGeral))
   }
 
