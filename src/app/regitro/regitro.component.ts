@@ -61,7 +61,6 @@ export class RegitroComponent implements OnInit {
       this.propriedadesGeral = JSON.parse(localStorage.getItem('ListaPropriedades'));
     }
 
-    console.log(this.propriedadesGeral)
   }
 
   clickProp(tarefa : Tarefa) : void {
@@ -74,12 +73,13 @@ export class RegitroComponent implements OnInit {
   }
 
   clickEdit(tarefa : Tarefa) : void {
-    console.log(tarefa.modalEditar)
+    console.log(tarefa)
     if(tarefa.modalEditar == false){
       tarefa.modalEditar = true;
-    } else {
+    } else if(tarefa.modalEditar == true) {
       tarefa.modalEditar = false;
     }
+
   }
 
 
@@ -93,8 +93,10 @@ export class RegitroComponent implements OnInit {
     }
   }
 
-  adicionarPropriedade(tarefa : Tarefa, propriedade : Propriedade) : void {
+  adicionarPropriedade(tarefa : Tarefa, propriedade : Propriedade, indice : number) : void {
     tarefa.listaPropriedades.push(propriedade);
+    tarefa.modalEditar = false;
+    localStorage.setItem('ListaTarefas', JSON.stringify(this.tarefasGeral))
   }
 
   cadastroTarefa() : void {
@@ -110,8 +112,9 @@ export class RegitroComponent implements OnInit {
       listaPropriedades : this.tarefa.listaPropriedades
     }
 
-    console.log(this.tarefasGeral)
+
     this.tarefasGeral.push(tarefaItem);
     localStorage.setItem('ListaTarefas', JSON.stringify(this.tarefasGeral));
+    this.tarefa.nomeTarefa = '';
   }
 }
