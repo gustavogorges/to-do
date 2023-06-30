@@ -5,7 +5,8 @@ import { UserRepository } from 'src/repositories/user.repository'
 interface Propriedade {
   nomePropriedade : string,
   tipoPropriedade : string,
-  valorPropriedade ?: string
+  valorPropriedade ?: string,
+  modalEdit : boolean
 }
 
 @Component({
@@ -34,16 +35,22 @@ export class PropriedadeComponent implements OnInit {
   nomePropriedade : string;
   tipoPropriedade : string;
 
+  modalEdit : boolean = false;
+  novoNome : string;
+  novoTipo : string;
+
   propriedade : Propriedade = {
     nomePropriedade : null,
     tipoPropriedade : null,
-    valorPropriedade : null
+    valorPropriedade : null,
+    modalEdit : false
   }
 
   cadastraPropriedade() : void {
     const novaPropriedade : Propriedade = {
       nomePropriedade : this.propriedade.nomePropriedade,
-      tipoPropriedade : this.propriedade.tipoPropriedade
+      tipoPropriedade : this.propriedade.tipoPropriedade,
+      modalEdit : this.propriedade.modalEdit
     }
 
     this.listaPropriedades.push(novaPropriedade);
@@ -58,6 +65,23 @@ export class PropriedadeComponent implements OnInit {
   removerPropriedade(propriedade : Propriedade) {
     this.listaPropriedades.splice(this.listaPropriedades.indexOf(propriedade,1));
     localStorage.setItem('ListaPropriedades',JSON.stringify(this.listaPropriedades))
+  }
+
+  editarPropriedade(propriedade : Propriedade) {
+    propriedade.modalEdit = true;
+  }
+
+  editValorPropriedade(propriedade : Propriedade) {
+    if(this.novoNome != null) {
+      propriedade.nomePropriedade = this.novoNome;
+    }
+    if(this.novoTipo != null) {
+      propriedade.tipoPropriedade = this.novoTipo;
+    }
+  
+    propriedade.modalEdit = false;
+    
+    localStorage.setItem('ListaPropriedades', JSON.stringify(this.listaPropriedades));
   }
 
   

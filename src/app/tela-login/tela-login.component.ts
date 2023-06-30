@@ -34,17 +34,16 @@ export class TelaLoginComponent implements OnInit {
     const id : string = this.username;
     const password : string = this.password;
 
-    this.userRepository.getUsers().subscribe(
-      (value) =>{
-        value.forEach(user => {
-          if(user.id == id){
-            if(user.password == password) {
-              this.router.navigate(['/registroTarefa'])
-            }
-          }
-        });
+    this.userRepository.getUserById(id).subscribe(
+      (user: User) => {
+        if(user.password == password) {
+          this.router.navigate(['/registroTarefa'])
+        }
+      },
+      (error : any) => {
+        console.log(error)
       }
-    );
+    )
 
   }
 

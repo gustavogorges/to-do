@@ -27,12 +27,17 @@ export class UserRepository {
     return this.httpClient.post<User>(API_URL, user);
   }
 
-  public getUserById(id : string, password : string):Observable<User> {
-    const teste = {
-      id : id,
-      password : password
-    }
-    return this.httpClient.post<User>(`${API_URL}/valida-usuario-existente`,teste);
+  public getUserById(id : string):Observable<User> {
+    // const teste = {
+    //   id : id,
+    //   password : password
+    // }
+
+    const url = `${API_URL}/${id}`;
+
+    return this.httpClient.get<User>(url).pipe(
+      map((value) => Object.assign(new User(), value))
+    );
   }
 
 

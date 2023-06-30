@@ -18,8 +18,13 @@
         <option *ngFor></option>
     </select> -->
     <div class="mainListaPropriedades">
-        
         <div class="itemLista" *ngFor="let propriedade of listaPropriedades">
+            <div class="modalEditarPropriedade" *ngIf="propriedade.modalEdit">
+                <h1 class="editTitle">Edite sua Propriedade</h1>
+                <input placeholder="{{propriedade.nomePropriedade}}" type="text" [(ngModel)]="novoNome">
+                <input placeholder="{{propriedade.tipoPropriedade}}" type="text" [(ngModel)]="novoTipo">
+                <button class="btnEditar" (click)="editValorPropriedade(propriedade)">editar</button>
+            </div>
             <h1 class="nomePropriedade">Nome: {{propriedade.nomePropriedade}}</h1>
             <div class="mainBox">
                 <h1 class="valorPropriedade">Tipo: {{propriedade.tipoPropriedade}}</h1>
