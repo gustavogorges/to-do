@@ -27,13 +27,13 @@
                   <h1 class="nomePropriedade">
                     {{propriedade.nomePropriedade}} : {{propriedade.valorPropriedade}}
                   </h1>
-                  <button class="btnApagar">X</button>
+                  <button class="btnApagar" (click)="apagarPropriedade(tarefa, propriedade)">X</button>
                 </div>
               </div>
             </div>
             <div class="btns">
               <button class="btn btn-editar" (click)="clickEdit(tarefa)">Editar</button>
-              <button class="btn btn-remover">Remover</button>
+              <button class="btn btn-remover" (click)="clickRemover(tarefa)">Remover</button>
         </div>
           </div>
           <div class="modalEdit" *ngIf="tarefa.modalEditar">

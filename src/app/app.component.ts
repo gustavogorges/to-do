@@ -17,8 +17,14 @@ export class AppComponent {
   constructor(
     private UserRepository: UserRepository
   ) {
-    this.users = this.UserRepository.getUsers();
-    this.user = this.getUsuarioLogado();
+    UserRepository.getUsers().subscribe({
+      next: (value) => {
+        console.log(value);
+        this.users = value;
+        this.user = this.getUsuarioLogado();
+      },
+    });
+
 
   }
 

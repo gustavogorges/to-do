@@ -55,6 +55,11 @@ export class PropriedadeComponent implements OnInit {
     this.propriedade.nomePropriedade = null
   }
 
+  removerPropriedade(propriedade : Propriedade) {
+    this.listaPropriedades.splice(this.listaPropriedades.indexOf(propriedade,1));
+    localStorage.setItem('ListaPropriedades',JSON.stringify(this.listaPropriedades))
+  }
+
   
 
 }

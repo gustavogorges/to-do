@@ -136,4 +136,14 @@ export class RegitroComponent implements OnInit {
     localStorage.setItem('ListaTarefas', JSON.stringify(this.tarefasGeral));
     this.tarefa.nomeTarefa = '';
   }
+
+  apagarPropriedade(tarefa : Tarefa, propriedade : Propriedade) {
+    tarefa.listaPropriedades.splice(tarefa.listaPropriedades.indexOf(propriedade),1);
+    localStorage.setItem('ListaTarefas', JSON.stringify(this.tarefasGeral));
+  }
+
+  clickRemover(tarefa : Tarefa) {
+    this.tarefasGeral.splice(this.tarefasGeral.indexOf(tarefa),1);
+    localStorage.setItem('ListaTarefas',JSON.stringify(this.tarefasGeral))
+  }
 }

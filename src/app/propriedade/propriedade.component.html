@@ -25,8 +25,8 @@
                 <h1 class="valorPropriedade">Tipo: {{propriedade.tipoPropriedade}}</h1>
             </div>
             <div class="btns">
-                <button class="btn btn-editar">Editar</button>
-                <button class="btn btn-remover">Remover</button>
+                <button class="btn btn-editar" (click)="editarPropriedade(propriedade)">Editar</button>
+                <button class="btn btn-remover" (click)="removerPropriedade(propriedade)">Remover</button>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ import { ModalComponent } from "./modal/modal.component";
 import { registerContentQuery } from "@angular/core/src/render3/instructions";
 import { PropriedadeComponent } from "./propriedade/propriedade.component";
 import { TelaLoginComponent } from "./tela-login/tela-login.component";
+import { TelaCadastroComponent } from "./tela-cadastro/tela-cadastro.component";
 
 const rotas: Route[] = [
   {
@@ -22,11 +23,15 @@ const rotas: Route[] = [
   },
   {
     path: "",
-    component: TelaLoginComponent,
+    component: TelaCadastroComponent,
   },
   {
     path: "propriedades",
     component: PropriedadeComponent
+  },
+  {
+    path: "telaCadastro",
+    component: TelaCadastroComponent
   }
 ];
 

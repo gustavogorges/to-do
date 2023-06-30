@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/models/users/user';
 import { UserRepository } from 'src/repositories/user.repository'
-import { AuthService } from 'src/service/auth.service';
 
 
 
@@ -18,10 +17,13 @@ export class TelaLoginComponent implements OnInit {
   public user : User | undefined;
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userRepository : UserRepository
   ) { 
    
+  }
+  ngOnInit(): void {
+    
   }
 
   username : string;
@@ -29,31 +31,21 @@ export class TelaLoginComponent implements OnInit {
 
   
   login(): void {
-    this.authService.login(this.username, this.password).subscribe(
-      () => {
-        console.log('entrou')
-        // Once the login is successful, retrieve permissions and perform further actions
-        this.authService.getCardPermissions().subscribe(
-          cardPermissions => {
-            // Handle permissions, e.g., store them in a variable or update component state
-            console.log('card permissions',cardPermissions);
+    const id : string = this.username;
+    const password : string = this.password;
+
+    this.userRepository.getUsers().subscribe(
+      (value) =>{
+        value.forEach(user => {
+          if(user.id == id){
+            if(user.password == password) {
+              this.router.navigate(['/registroTarefa'])
+            }
           }
-        );
-        this.authService.getPropertiesPermissons().subscribe(
-          propertiesPermissions => {
-            // Handle permissions, e.g., store them in a variable or update component state
-            console.log('properties permissions',propertiesPermissions);
-          }
-        )
-        this.router.navigate(['/registroTarefa'])
-      },
-      error => {
-        console.error('Login failed:', error);
+        });
       }
     );
-  }
 
-  ngOnInit() {
   }
 
 }

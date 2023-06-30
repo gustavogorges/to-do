@@ -9,6 +9,8 @@ import { NavComponent } from './nav/nav.component';
 import { PropriedadeComponent } from './propriedade/propriedade.component';
 import { UserRepository } from 'src/repositories/user.repository';
 import { TelaLoginComponent } from './tela-login/tela-login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { TelaLoginComponent } from './tela-login/tela-login.component';
     RegitroComponent,
     NavComponent,
     PropriedadeComponent,
-    TelaLoginComponent
+    TelaLoginComponent,
+    TelaCadastroComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     UserRepository

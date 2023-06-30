@@ -1,0 +1,15 @@
+<main>
+  <div class="boxCadastro">
+    <h1>Realize seu Cadastro</h1>
+    <h1 class="cadastroTextInput">Digite seu username:</h1>
+    <input type="text" class="input" [(ngModel)]="usuario.username">
+    <h1 class="cadastroTextInput">Digite seu nome:</h1>
+    <input type="text" class="input" [(ngModel)]="usuario.nome">
+    <h1 class="cadastroTextInput">Digite seu email:</h1>
+    <input type="text" class="input" [(ngModel)]="usuario.email">
+    <h1 class="cadastroTextInput">Digite sua senha:</h1>
+    <input type="text" class="input" [(ngModel)]="usuario.senha">
+    <button class="cadastrarBtn" (click)="cadastrarUser()">Cadastrar</button>
+    <a routerLink="/telaLogin">Ja Possui Conta? Login</a>
+  </div>
+</main>
