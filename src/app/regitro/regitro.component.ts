@@ -36,10 +36,15 @@ export class RegitroComponent implements OnInit {
       
   }
 
+
+
   cadastroTarefaBoolean : boolean = false;
   tarefasGeral : Tarefa[] = [];
   propriedadesGeral : Propriedade[] = [];
- // propriedadeValor : string;
+
+
+  selectValue : string;
+ 
 
 
   tarefa: Tarefa = {
@@ -69,8 +74,34 @@ export class RegitroComponent implements OnInit {
     if(localStorage.getItem('ListaPropriedades') != null) {
       this.propriedadesGeral = JSON.parse(localStorage.getItem('ListaPropriedades'));
     }
+    
+    this.usuarioLogado = JSON.parse(localStorage.getItem('UsuarioLogado'));
+
+    //Booleans
+   this.cardAddBoolean = this.usuarioLogado.cardAdd
+   this.cardEditBoolean = this.usuarioLogado.cardEdit
+   this.cardMoveBoolean = this.usuarioLogado.cardMove
+   this.cardRemoveBoolean = this.usuarioLogado.cardRemove
+
+   this.propertieAddBoolean = this.usuarioLogado.propertieAdd
+   this.propertieEditBoolean = this.usuarioLogado.propertieEdit
+   this.propertieRemoveBoolean = this.usuarioLogado.propertieRemove
 
   }
+  
+  cardAddBoolean : boolean;
+  cardEditBoolean : boolean;
+  cardMoveBoolean : boolean;
+  cardRemoveBoolean : boolean;
+
+  propertieAddBoolean : boolean;
+  propertieEditBoolean : boolean;
+  propertieRemoveBoolean : boolean;
+
+  usuarioLogado : User;
+
+    
+
 
   clickProp(tarefa : Tarefa) : void {
     console.log(tarefa.clickPropriedades)
@@ -93,6 +124,7 @@ export class RegitroComponent implements OnInit {
 
 
   cadastrarTarefaButton() : void {
+    console.log(this.selectValue)
     console.log(this.cadastroTarefa)
     if(this.cadastroTarefaBoolean == false) {
       this.cadastroTarefaBoolean = true;
@@ -100,6 +132,10 @@ export class RegitroComponent implements OnInit {
     } else {
       this.cadastroTarefaBoolean = false;
     }
+  }
+
+  consoleLog() : void {
+    console.log(this.selectValue);
   }
 
   adicionarPropriedade(tarefa : Tarefa, indice : number, propriedade : Propriedade) : void {

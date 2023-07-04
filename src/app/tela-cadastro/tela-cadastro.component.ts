@@ -7,6 +7,13 @@ interface Usuario {
   nome : string;
   email : string;
   senha : string;
+  cardAdd : boolean;
+	cardEdit : boolean;
+	cardRemove : boolean;
+	cardMove : boolean;
+	propertieAdd : boolean;
+	propertieEdit : boolean;
+	propertieRemove : boolean;
 }
 
 @Component({
@@ -21,11 +28,26 @@ export class TelaCadastroComponent implements OnInit {
   ngOnInit() {
   }
 
+    cardAdd : boolean = false
+	  cardEdit : boolean = false
+  	cardRemove : boolean = false
+	  cardMove : boolean = false
+	  propertieAdd : boolean = false
+	  propertieEdit : boolean = false
+	  propertieRemove : boolean = false
+
   usuario : Usuario = {
     username : "",
     nome : "",
     email : "",
-    senha : ""
+    senha : "",
+    cardAdd : false,
+	  cardEdit : false,
+  	cardRemove : false,
+	  cardMove : false,
+	  propertieAdd : false,
+	  propertieEdit : false,
+	  propertieRemove : false
   }
 
   cadastrarUser() {
@@ -34,8 +56,17 @@ export class TelaCadastroComponent implements OnInit {
       id : this.usuario.username,
       name : this.usuario.nome,
       email : this.usuario.email,
-      password : this.usuario.senha
+      password : this.usuario.senha,
+      cardAdd : this.cardAdd,
+	    cardEdit : this.cardEdit,
+	    cardRemove : this.cardRemove,
+	    cardMove : this.cardMove,
+	    propertieAdd : this.propertieAdd,
+	    propertieEdit : this.propertieEdit,
+	    propertieRemove : this.propertieRemove
     }
+
+    console.log(usuarioNovo.cardAdd);
 
     this.userRepository.postUser(usuarioNovo)
     .subscribe(

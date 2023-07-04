@@ -10,7 +10,6 @@ import { UserRepository } from 'src/repositories/user.repository'
 export class AppComponent {
   title = 'to-do';
 
-  private userId : string = "joao.silva"
   private users: User[] = [];
   public user : User | undefined;
 
@@ -21,16 +20,11 @@ export class AppComponent {
       next: (value) => {
         console.log(value);
         this.users = value;
-        this.user = this.getUsuarioLogado();
       },
     });
 
 
   }
 
-  private getUsuarioLogado(): User | undefined {
-    return this.users.find((user) => {
-      return user.id === this.userId;
-    });
-  }
+
 }

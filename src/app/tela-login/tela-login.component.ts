@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { stringify } from 'querystring';
 import { User } from 'src/models/users/user';
 import { UserRepository } from 'src/repositories/user.repository'
 
@@ -37,6 +38,7 @@ export class TelaLoginComponent implements OnInit {
     this.userRepository.getUserById(id).subscribe(
       (user: User) => {
         if(user.password == password) {
+          localStorage.setItem('UsuarioLogado', JSON.stringify(user))
           this.router.navigate(['/registroTarefa'])
         }
       },

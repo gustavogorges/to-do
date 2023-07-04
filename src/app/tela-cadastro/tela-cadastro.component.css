@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 main {
     width: 95vw;
     height: 95vh;
@@ -8,7 +12,7 @@ main {
 
 .boxCadastro {
     width: 50%;
-    height: 80%;
+    height: 100%;
     background-color: #d4d4d4;
     display: flex;
     justify-content: center;
@@ -17,7 +21,7 @@ main {
 }
 
 .cadastrarBtn {
-    margin-top: 10%;
+    margin-top: 5%;
     width: 20%;
     height: 10%;
     border: none;
@@ -31,5 +35,13 @@ main {
 }
 
 .cadastroTextInput {
-    font-size: 20px ;
+    font-size: 15px ;
+}
+ 
+.cadastroCheckInput {
+    font-size: 15px;
+}
+
+.label {
+    font-size: 14px;
 }

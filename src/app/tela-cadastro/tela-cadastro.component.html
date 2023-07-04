@@ -9,6 +9,27 @@
     <input type="text" class="input" [(ngModel)]="usuario.email">
     <h1 class="cadastroTextInput">Digite sua senha:</h1>
     <input type="text" class="input" [(ngModel)]="usuario.senha">
+    <h1 class="cadastroCheckInput">Quais seus card permissions ?</h1>
+    <div>
+      <input name="1"  [(ngModel)]="cardAdd"  type="checkbox">
+      <label for="1" class="label">Criar</label>
+      <input name="1"  [(ngModel)]="cardEdit"  type="checkbox">
+      <label for="1" class="label">Editar</label>
+      <input name="1"  [(ngModel)]="cardRemove"  type="checkbox">
+      <label for="1" class="label">Remover</label>
+      <input name="1"  [(ngModel)]="cardMove" type="checkbox">
+      <label for="1" class="label">Mover</label>
+    </div>
+    <h1 class="cadastroCheckInput">Quais seus properties permissions ?</h1>
+    <div>
+      <input name="1" [(ngModel)]="propertieEdit"  type="checkbox">
+      <label for="1"  class="label">Editar</label>
+      <input name="1" [(ngModel)]="propertieAdd"  type="checkbox">
+      <label for="1"  class="label">Criar</label>
+      <input name="1" [(ngModel)]="propertieRemove"  type="checkbox">
+      <label for="1"  class="label">Remover</label>
+    </div>
+    
     <button class="cadastrarBtn" (click)="cadastrarUser()">Cadastrar</button>
     <a routerLink="/telaLogin">Ja Possui Conta? Login</a>
   </div>

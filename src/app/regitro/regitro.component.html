@@ -1,21 +1,24 @@
 <app-nav></app-nav>
 <main>
       <div class="header">
-        <button class="btnCadastroTarefa" (click)="cadastrarTarefaButton()">cadastrar tarefa</button>
+        <button
+         class="btnCadastroTarefa"
+          (click)="cadastrarTarefaButton()"
+          [disabled]="!cardAddBoolean"
+          >cadastrar tarefa</button>
           <h1 class="titlePage">Tarefas</h1>
-          <select>  
-            <option value="">Padrão</option>
-            <option value="">Categorias</option>
-            <option value="">Calendário</option>
+          <select [(ngModel)]="selectValue" (change)="consoleLog()">  
+            <option default>Padrão</option>
+            <option>Categorias</option>
+            <option>Calendário</option>
           </select>
       </div>
-
       <div class="cadastroBox" *ngIf="cadastroTarefaBoolean">
         <h1 class="titleCadastro">Cadastre a sua tarefas aqui!</h1>
         <input class="inputCadastro" type="text" placeholder="Digite o nome da tarefa" [(ngModel)]="tarefa.nomeTarefa">
        <button class="btnCadastrar" (click)="cadastroTarefa()">Cadastrar</button>
     </div>
-
+      <div *ngIf="selectValue == 'Padrão'">
     <div class="tarefasBox">
         <div class="tarefas" *ngFor="let tarefa of tarefasGeral">
           
@@ -32,8 +35,16 @@
               </div>
             </div>
             <div class="btns">
-              <button class="btn btn-editar" (click)="clickEdit(tarefa)">Editar</button>
-              <button class="btn btn-remover" (click)="clickRemover(tarefa)">Remover</button>
+              <button
+               class="btn btn-editar"
+              (click)="clickEdit(tarefa)"
+              [disabled]="!cardEditBoolean"
+              >Editar</button>
+              <button
+               class="btn btn-remover"
+               (click)="clickRemover(tarefa)"
+               [disabled]="!cardRemoveBoolean"
+               >Remover</button>
         </div>
           </div>
           <div class="modalEdit" *ngIf="tarefa.modalEditar">
@@ -51,5 +62,50 @@
           </div>
         </div>
     </div>
-    
+  <div *ngIf="selectValue == 'Categorias'">
+    <div class="tarefasBox">
+      <div class="tarefas" *ngFor="let tarefa of tarefasGeral">
+        
+        <div class="tarefa">
+          <h1 class="tarefaNome" (click)="clickProp(tarefa)">{{tarefa.nomeTarefa}}</h1>
+          <div class="propriedades" *ngIf="tarefa.clickPropriedades">
+            <div class="propriedade" *ngFor="let propriedade of tarefa.listaPropriedades; index as indice">
+              <div class="propriedadeValores">
+                <h1 class="nomePropriedade">
+                  {{propriedade.nomePropriedade}} : {{propriedade.valorPropriedade}}
+                </h1>
+                <button class="btnApagar" (click)="apagarPropriedade(tarefa, propriedade)">X</button>
+              </div>
+            </div>
+          </div>
+          <div class="btns">
+            <button
+             class="btn btn-editar"
+            (click)="clickEdit(tarefa)"
+            [disabled]="!cardEditBoolean"
+            >Editar</button>
+            <button
+             class="btn btn-remover"
+             (click)="clickRemover(tarefa)"
+             [disabled]="!cardRemoveBoolean"
+             >Remover</button>
+      </div>
+        </div>
+        <div class="modalEdit" *ngIf="tarefa.modalEditar">
+          <div class="headerModalEdit">
+            <h1 class="btnCloseModal" (click)="clickEdit(tarefa)">X</h1>
+          </div>
+            <h1 class="titleModal">{{tarefa.nomeTarefa}}</h1>
+            <div class="propriedadesModal" *ngFor="let propriedade of propriedadesGeral; index as indice2">
+              <div class="divItens" style="display: flex; width: 90%; justify-content: space-between;">
+                <h1 class="propriedadesItens">{{propriedade.nomePropriedade}}</h1>
+                <input [(ngModel)]="propValor" class="inputValorPropriedade" type="text" placeholder="Digite o valor ">
+                <button class="propriedadeBtn" (click)="adicionarPropriedade(tarefa, indice2, propriedade)">adicionar</button>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+  </div>
 </main>
