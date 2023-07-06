@@ -11,6 +11,8 @@ import { UserRepository } from 'src/repositories/user.repository';
 import { TelaLoginComponent } from './tela-login/tela-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
+import { UserService } from 'src/services/user.service';
+import { AuthGuardService } from 'src/services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
     HttpClientModule
   ],
   providers: [
-    UserRepository
+    UserRepository,
+    UserService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

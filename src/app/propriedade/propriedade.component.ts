@@ -29,7 +29,14 @@ export class PropriedadeComponent implements OnInit {
     if(localStorage.getItem('ListaPropriedades') != null) {
       this.listaPropriedades = JSON.parse(localStorage.getItem('ListaPropriedades'))
     }
+
+    this.usuarioLogado = JSON.parse(localStorage.getItem('UsuarioLogado'));
+
+   this.propertieAddBoolean = this.usuarioLogado.propertieAdd
+   this.propertieEditBoolean = this.usuarioLogado.propertieEdit
+   this.propertieRemoveBoolean = this.usuarioLogado.propertieRemove
   }
+  usuarioLogado : User;
 
   listaPropriedades : Propriedade[] = [];
   nomePropriedade : string;
@@ -45,6 +52,10 @@ export class PropriedadeComponent implements OnInit {
     valorPropriedade : null,
     modalEdit : false
   }
+
+  propertieAddBoolean : boolean;
+  propertieEditBoolean : boolean;
+  propertieRemoveBoolean : boolean;
 
   cadastraPropriedade() : void {
     const novaPropriedade : Propriedade = {

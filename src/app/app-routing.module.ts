@@ -7,15 +7,18 @@ import { registerContentQuery } from "@angular/core/src/render3/instructions";
 import { PropriedadeComponent } from "./propriedade/propriedade.component";
 import { TelaLoginComponent } from "./tela-login/tela-login.component";
 import { TelaCadastroComponent } from "./tela-cadastro/tela-cadastro.component";
+import { AuthGuardService } from "src/services/auth-guard.service";
 
 const rotas: Route[] = [
   {
     path: "registroTarefa",
     component: RegitroComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: "novaCategoria",
     component: ModalComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: "telaLogin",
@@ -27,7 +30,8 @@ const rotas: Route[] = [
   },
   {
     path: "propriedades",
-    component: PropriedadeComponent
+    component: PropriedadeComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: "telaCadastro",

@@ -67,6 +67,8 @@ export class RegitroComponent implements OnInit {
 
   ngOnInit() {
 
+    
+
     if(localStorage.getItem('ListaTarefas') != null) {
       this.tarefasGeral = JSON.parse(localStorage.getItem('ListaTarefas'));
     }
@@ -83,8 +85,6 @@ export class RegitroComponent implements OnInit {
    this.cardMoveBoolean = this.usuarioLogado.cardMove
    this.cardRemoveBoolean = this.usuarioLogado.cardRemove
 
-   this.propertieAddBoolean = this.usuarioLogado.propertieAdd
-   this.propertieEditBoolean = this.usuarioLogado.propertieEdit
    this.propertieRemoveBoolean = this.usuarioLogado.propertieRemove
 
   }
@@ -94,8 +94,6 @@ export class RegitroComponent implements OnInit {
   cardMoveBoolean : boolean;
   cardRemoveBoolean : boolean;
 
-  propertieAddBoolean : boolean;
-  propertieEditBoolean : boolean;
   propertieRemoveBoolean : boolean;
 
   usuarioLogado : User;

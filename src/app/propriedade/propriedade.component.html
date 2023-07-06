@@ -7,11 +7,15 @@
             <option></option>
             <option>Texto</option>
             <option>Número</option>
-            <option>Seleção</option>
+            <option>Categoria</option>
             <option>Calendário</option>
         </select>
     </div>
-    <button class="btnCadastrar" (click)="cadastraPropriedade()">Cadastrar</button>
+    <button 
+    class="btnCadastrar" 
+    (click)="cadastraPropriedade()"
+    [disabled]="!propertieAddBoolean"
+    >Cadastrar</button>
 
     <!-- <h1>Todas</h1>
     <select class="selectTipoLista">
@@ -30,8 +34,16 @@
                 <h1 class="valorPropriedade">Tipo: {{propriedade.tipoPropriedade}}</h1>
             </div>
             <div class="btns">
-                <button class="btn btn-editar" (click)="editarPropriedade(propriedade)">Editar</button>
-                <button class="btn btn-remover" (click)="removerPropriedade(propriedade)">Remover</button>
+                <button
+                 class="btn btn-editar"
+                  (click)="editarPropriedade(propriedade)"
+                  [disabled]="!propertieEditBoolean"
+                   >Editar</button>
+                <button
+                 class="btn btn-remover"
+                  (click)="removerPropriedade(propriedade)"
+                  [disabled]="!propertieRemoveBoolean"
+                  >Remover</button>
             </div>
         </div>
     </div>
