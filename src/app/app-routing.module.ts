@@ -8,6 +8,8 @@ import { PropriedadeComponent } from "./propriedade/propriedade.component";
 import { TelaLoginComponent } from "./tela-login/tela-login.component";
 import { TelaCadastroComponent } from "./tela-cadastro/tela-cadastro.component";
 import { AuthGuardService } from "src/services/auth-guard.service";
+import { VisualizacaoPadraoComponent } from "./visualizacao-padrao/visualizacao-padrao.component";
+import { VisualizacaoPropriedadesComponent } from "./visualizacao-propriedades/visualizacao-propriedades.component";
 
 const rotas: Route[] = [
   {
@@ -36,6 +38,14 @@ const rotas: Route[] = [
   {
     path: "telaCadastro",
     component: TelaCadastroComponent
+  },
+  {
+    path: "telaPadrão",
+    component: VisualizacaoPadraoComponent
+  },
+  {
+    path: "telaCategorias",
+    component: VisualizacaoPropriedadesComponent
   }
 ];
 

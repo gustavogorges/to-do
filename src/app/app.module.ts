@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TelaCadastroComponent } from './tela-cadastro/tela-cadastro.component';
 import { UserService } from 'src/services/user.service';
 import { AuthGuardService } from 'src/services/auth-guard.service';
+import { VisualizacaoPadraoComponent } from './visualizacao-padrao/visualizacao-padrao.component';
+import { VisualizacaoPropriedadesComponent } from './visualizacao-propriedades/visualizacao-propriedades.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AuthGuardService } from 'src/services/auth-guard.service';
     NavComponent,
     PropriedadeComponent,
     TelaLoginComponent,
-    TelaCadastroComponent
+    TelaCadastroComponent,
+    VisualizacaoPadraoComponent,
+    VisualizacaoPropriedadesComponent
   ],
   imports: [
     BrowserModule,
